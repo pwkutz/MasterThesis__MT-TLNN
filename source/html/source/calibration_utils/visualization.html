@@ -1,0 +1,1272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>source.calibration_utils.visualization API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>source.calibration_utils.visualization</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import matplotlib.pyplot as plt
+import pandas as pd
+from scipy.stats import norm
+import numpy as np
+import tikzplotlib
+# netcal
+from netcal import cumulative_moments
+
+from matplotlib import rc
+import matplotlib as mpl
+#mpl.rcParams.update(mpl.rcParamsDefault)
+#mpl.rcParams[&#39;text.usetex&#39;] = True
+
+rc(&#39;font&#39;,**{&#39;family&#39;:&#39;sans-serif&#39;,&#39;sans-serif&#39;:[&#39;Helvetica&#39;]})
+rc(&#39;text&#39;, usetex=True)
+# plt.style.use(&#39;ggplot&#39;)
+SMALL_SIZE = 8
+MEDIUM_SIZE = 10
+BIGGER_SIZE = 20
+
+np.random.seed(10)
+
+rc(&#39;font&#39;, size=BIGGER_SIZE)          # controls default text sizes
+rc(&#39;axes&#39;, titlesize=BIGGER_SIZE)     # fontsize of the axes title
+rc(&#39;axes&#39;, labelsize=BIGGER_SIZE)    # fontsize of the x and y labels
+rc(&#39;xtick&#39;, labelsize=BIGGER_SIZE)    # fontsize of the tick labels
+rc(&#39;ytick&#39;, labelsize=BIGGER_SIZE)    # fontsize of the tick labels
+rc(&#39;legend&#39;, fontsize=MEDIUM_SIZE)    # legend fontsize
+rc(&#39;figure&#39;, titlesize=BIGGER_SIZE)  # fontsize of the figure title
+
+# visualize results, x has to be one dimensional so take implicit time parameter for example
+def visualize_all(X_1D, Y, X_train_1D, Y_train, X_test_1D, mean_prediction, std_prediction):
+    # , linestyle=&#34;dotted&#34;)
+    plt.plot(X_1D, Y, label=r&#34;true data&#34;, color=&#34;tab:blue&#34;)
+    plt.plot(X_test_1D, mean_prediction,
+             label=&#34;mean prediction&#34;, color=&#34;tab:pink&#34;)
+    plt.fill_between(
+        X_test_1D.ravel(),
+        mean_prediction - 1.96 * std_prediction,
+        mean_prediction + 1.96 * std_prediction,
+        color=&#34;tab:green&#34;,
+        alpha=0.5,
+        label=r&#34;95% confidence interval (total uncertainty)&#34;,
+    )
+    plt.scatter(X_train_1D, Y_train, color=&#39;red&#39;)
+    plt.legend()
+    plt.xlabel(&#34;$x$&#34;)
+    plt.ylabel(&#34;$y$&#34;)
+    _ = plt.title(&#34;Gaussian process regression&#34;)
+    plt.show()
+
+
+def visualize_test(X_test_1D, Y_test, mean_prediction, std_prediction, epistemic_std=None, figure_num=1, title=&#34;MIAU&#34;):
+    plt.figure(figure_num)
+    plt.plot(X_test_1D, Y_test, label=r&#34;true data&#34;,
+             color=&#34;tab:blue&#34;)  # , linestyle=&#34;dotted&#34;)
+    plt.plot(X_test_1D, mean_prediction,
+             label=&#34;mean prediction&#34;, color=&#34;tab:pink&#34;)
+    plt.fill_between(
+        X_test_1D.ravel(),
+        mean_prediction - 1.96 * std_prediction,
+        mean_prediction + 1.96 * std_prediction,
+        color=&#34;tab:green&#34;,
+        alpha=0.5,
+        label=r&#34;95% confidence interval&#34;,
+    )
+    if epistemic_std is not None:
+        plt.fill_between(
+            X_test_1D.ravel(),
+            mean_prediction - 1.96 * epistemic_std,
+            mean_prediction + 1.96 * epistemic_std,
+            color=&#34;tab:blue&#34;,
+            alpha=0.5,
+            label=r&#34;95% confidence interval epistemic&#34;,
+        )
+    plt.legend()
+    plt.xlabel(&#34;$x$&#34;)
+    plt.ylabel(&#34;$y$&#34;)
+    _ = plt.title(title)
+    plt.show()
+
+
+def visualize_multiple(X_test_1D, Y_test, predictions, figure_num=1, title=&#34;MIAU&#34;, csvpath=None):
+    plt.figure(figure_num)
+    plt.plot(X_test_1D, Y_test, label=r&#34;true data&#34;,
+             color=&#34;black&#34;)  # , linestyle=&#34;dotted&#34;)
+    if csvpath is not None:
+        df = pd.DataFrame()
+        df[&#39;x&#39;] = X_test_1D
+        df[&#39;y&#39;] = Y_test
+
+    for prediction in predictions:
+        plt.plot(X_test_1D, prediction[&#34;mean&#34;], label=prediction[&#34;name&#34;] +
+                 &#34; mean prediction&#34;, color=prediction[&#34;color&#34;])
+        plt.fill_between(
+            X_test_1D.ravel(),
+            prediction[&#34;mean&#34;] - 1.96 * np.sqrt(prediction[&#34;var&#34;]),
+            prediction[&#34;mean&#34;] + 1.96 * np.sqrt(prediction[&#34;var&#34;]),
+            color=prediction[&#34;color&#34;],
+            alpha=0.5,
+            label=prediction[&#34;name&#34;] + r&#34; 95% confidence interval&#34;,
+        )
+        if csvpath is not None:
+            df[prediction[&#34;name&#34;] + &#34;_mean&#34;] = prediction[&#34;mean&#34;].to_numpy()
+            df[prediction[&#34;name&#34;] + &#34;_upper_CI&#34;] = (prediction[&#34;mean&#34;] + 1.96 * np.sqrt(prediction[&#34;var&#34;])).to_numpy()
+            df[prediction[&#34;name&#34;] + &#34;_lower_CI&#34;] = (prediction[&#34;mean&#34;] - 1.96 * np.sqrt(prediction[&#34;var&#34;])).to_numpy()
+    
+    df[&#39;lower_CI&#39;] = df[[prediction[&#34;name&#34;] + &#34;_lower_CI&#34; for prediction in predictions]].max(axis=1)
+    df[&#39;upper_CI&#39;] = df[[prediction[&#34;name&#34;] + &#34;_upper_CI&#34; for prediction in predictions]].min(axis=1)
+
+    plt.legend()
+    plt.xlabel(&#34;$x$&#34;)
+    plt.ylabel(&#34;$y$&#34;)
+    _ = plt.title(title)
+
+
+    # save csv
+    if csvpath is not None:
+        df.to_csv(csvpath, index=False)
+
+    plt.show()
+
+
+#  ▄▀▀ ▄▀▄ █   █ ██▄ █▀▄ ▄▀▄ ▀█▀ █ ▄▀▄ █▄ █
+#  ▀▄▄ █▀█ █▄▄ █ █▄█ █▀▄ █▀█  █  █ ▀▄▀ █ ▀█
+
+def visualize_calibration(X_test_1D, Y_test, calibration_outputs_norm, calibration_outputs_cdf, CIs, figure_num=1, title=&#34;MIAU&#34;, tikzpath=None, csvpath=None):
+    &#34;&#34;&#34;
+    calibration_outputs: [(t_values, cdf, name)]
+    CIs: list of confidence intervals, ordered
+    cdf: cumulative distribution functions shape (t,n,1)
+        with t as the number of points that define the PDF/CDF per sample of n,
+        with n as the number of samples each one corresponding to a value in the means array,
+    &#34;&#34;&#34;
+    # colormap
+    normalized_points = np.linspace(0, 1, len(CIs))
+    # You can replace &#39;viridis&#39; with any other colormap like &#39;plasma&#39;, &#39;magma&#39;, etc.
+    colormap = plt.cm.viridis
+    colors = [colormap(1 - point) for point in normalized_points]
+
+    #plot the uncalibrated and calibrated NORM data
+    for i, (mean_prediction, std_prediction, name) in enumerate(calibration_outputs_norm):
+        mean_prediction = np.array(mean_prediction).ravel()
+        fig = plt.figure(i)
+        # true function
+        plt.plot(X_test_1D, Y_test, label=r&#34;TROLL&#34;, color=&#34;green&#34;)
+        # predicted mean
+        plt.plot(X_test_1D, mean_prediction, label=r&#34;Multi-fidelity prediction&#34;, color=&#34;blue&#34;)
+        
+        # df for csv file
+        if csvpath is not None:
+            # Create a DataFrame
+            df = pd.DataFrame()
+            df.insert(0, &#39;x&#39;, X_test_1D)
+            df.insert(0, &#39;y_test&#39;, Y_test)
+            df.insert(0, &#39;y_pred&#39;, mean_prediction)
+
+        # plot CIs
+        for j, CI in enumerate(CIs):
+            alpha = 1.0 - CI
+            plt.fill_between(
+                X_test_1D.ravel(),
+                mean_prediction - norm.ppf(1-alpha/2) * std_prediction,
+                mean_prediction + norm.ppf(1-alpha/2) * std_prediction,
+                color=colors[j],
+                alpha=1.0,
+                label=str(100*CI) + &#34;% confidence interval&#34;,
+            )
+            # df for csv file
+            if csvpath is not None:
+                df.insert(0, &#39;y_&#39;+str(int(100*CI))+&#34;_lower&#34;, mean_prediction - norm.ppf(1-alpha/2) * std_prediction)
+                df.insert(0, &#39;y_&#39;+str(int(100*CI))+&#34;_upper&#34;, mean_prediction + norm.ppf(1-alpha/2) * std_prediction)
+
+
+        plt.title(name)
+        plt.legend()
+        # save tikz figure
+        if tikzpath is not None:
+            tikz_fig = tikzplotlib.get_tikz_code(fig, filepath=tikzpath + name + &#34;.tex&#34;)
+            with open(tikzpath + name + &#34;.tex&#34;, &#34;w&#34;) as open_file:
+                open_file.write(tikz_fig)
+
+        # save csv
+        if csvpath is not None:
+            df.to_csv(csvpath + name + &#34;.csv&#34;, index=False)
+
+        plt.plot()
+
+    # plot the CDF calibrated data
+    for i, (t_values, cdf, name) in enumerate(calibration_outputs_cdf):
+        fig = plt.figure(i+len(calibration_outputs_norm))
+        # true function
+        plt.plot(X_test_1D, Y_test, label=r&#34;TROLL&#34;, color=&#34;green&#34;)
+
+        mean_calib, _ = cumulative_moments(t_values, cdf)
+        mean_calib = np.squeeze(mean_calib)
+
+        # predicted mean
+        plt.plot(X_test_1D, mean_calib,
+                 label=r&#34;Calibrated multi-fidelity prediction&#34;, color=&#34;blue&#34;)
+        
+        if csvpath is not None:
+            # Create a DataFrame
+            df = pd.DataFrame()
+            df.insert(0, &#39;x&#39;, X_test_1D)
+            df.insert(0, &#39;y_test&#39;, Y_test)
+            df.insert(0, &#39;y_pred&#39;, mean_calib)
+
+        # plot CIs NOTE CIs don&#39;t have to be centered around the mean here necessarily bc the distribution isn&#39;t normal anymore
+        n = mean_calib.shape[0]
+        for j, CI in enumerate(CIs):
+            alpha = 1.0 - CI
+            lower = np.array(
+                [np.interp(alpha/2, cdf[:, k, 0], t_values[:, k, 0]) for k in range(n)])
+            upper = np.array(
+                [np.interp(1-alpha/2, cdf[:, k, 0], t_values[:, k, 0]) for k in range(n)])
+            plt.fill_between(
+                X_test_1D.ravel(),
+                lower,
+                upper,
+                color=colors[j],
+                alpha=1.0,
+                label=str(100*CI) + &#34;% confidence interval&#34;,
+            )
+            # df for csv file
+            if csvpath is not None:
+                df.insert(0, &#39;y_&#39;+str(int(100*CI))+&#34;_lower&#34;, lower)
+                df.insert(0, &#39;y_&#39;+str(int(100*CI))+&#34;_upper&#34;, upper)
+
+        plt.title(name)
+        plt.legend()
+
+        # save tikz figure
+        if tikzpath is not None:
+            tikz_fig = tikzplotlib.get_tikz_code(fig, filepath=tikzpath + name + &#34;.tex&#34;)
+            with open(tikzpath + name + &#34;.tex&#34;, &#34;w&#34;) as open_file:
+                open_file.write(tikz_fig)
+
+        # save csv
+        if csvpath is not None:
+            df.to_csv(csvpath + name + &#34;.csv&#34;, index=False)
+
+        plt.plot()
+
+def visualize_calibration_map_Iso(iso_model, tikzpath=None, csvpath=None):
+    # Obtain a dense range of x-values for prediction
+    x_dense = np.linspace(0, 1, 1000)
+    y_pred = iso_model._iso[0].predict(x_dense)
+
+    # Plot
+    fig = plt.figure()
+    plt.plot(x_dense, y_pred, label=&#34;Isotonic Regression&#34;)
+    plt.plot([0, 1], [0, 1], &#39;k--&#39;, color=&#39;gray&#39;, label=&#34;identity map&#34;)
+
+    plt.legend()
+    plt.title(&#34;Isotonic Regression CDF Map&#34;)
+
+    # save tikz figure
+    if tikzpath is not None:
+        tikz_fig = tikzplotlib.get_tikz_code(fig, filepath=tikzpath)
+        with open(tikzpath, &#34;w&#34;) as open_file:
+            open_file.write(tikz_fig)
+    
+    # save data to csv file
+    if csvpath is not None:
+        # Create a DataFrame
+        df = pd.DataFrame(y_pred, columns=[&#39;y&#39;])
+        df.insert(0, &#39;x&#39;, x_dense)
+
+        # Save the DataFrame to a CSV file
+        df.to_csv(csvpath, index=False)
+
+    plt.show()
+
+def visualize_calibration_map_Beta(gpbeta_model, input_params, tikzpath=None, csvpath=None):
+    fig = plt.figure()
+    plt.plot([0, 1], [0, 1], &#39;k--&#39;, color=&#39;gray&#39;, label=&#34;Identity map&#34;)
+
+    if csvpath is not None:
+        df = pd.DataFrame()
+
+    for i, (mu, sigma) in enumerate(input_params):
+        t_beta, _, cdf_beta = gpbeta_model.transform((np.array([mu]), np.array([sigma])))
+        cdf_beta = cdf_beta.flatten()
+        cdf_test = norm.cdf(t_beta, loc=mu, scale=sigma).flatten()
+        plt.plot(cdf_test, cdf_beta, label=&#34;μ = &#34; + str(mu) + &#34;, σ = &#34; + str(sigma))
+        if csvpath is not None:
+            df.insert(0, &#39;x_&#39; + str(i), cdf_test)
+            df.insert(0, &#39;y_&#39; + str(i), cdf_beta)
+    
+    plt.title(&#34;Beta Calibration map&#34;)
+    plt.legend()
+
+    # save tikz figure
+    if tikzpath is not None:
+        tikz_fig = tikzplotlib.get_tikz_code(fig, filepath=tikzpath)
+        with open(tikzpath, &#34;w&#34;) as open_file:
+            open_file.write(tikz_fig)
+
+    #save csv
+    if csvpath is not None:
+        df.to_csv(csvpath, index=False)
+    
+    plt.show()
+
+def visualize_calibration_map_Normal(gpnorm_model, input_params, tikzpath=None, csvpath=None):
+    x_values = np.linspace(-100,100,1000)
+    fig = plt.figure()
+    plt.plot([0, 1], [0, 1], &#39;k--&#39;, color=&#39;gray&#39;, label=&#34;Identity map&#34;)
+
+    if csvpath is not None:
+        df = pd.DataFrame()
+
+    for i, (mu, sigma) in enumerate(input_params):
+        std_norm = gpnorm_model.transform((np.array([mu]), np.array([sigma])))[0]
+        cdf_test = norm.cdf(x_values, loc=mu, scale=sigma).flatten()
+        cdf_norm = norm.cdf(x_values, loc=mu, scale=std_norm).flatten()
+        plt.plot(cdf_test, cdf_norm, label=&#34;$μ = &#34; + str(mu) + &#34;, σ = &#34; + str(sigma))
+        if csvpath is not None:
+            df.insert(0, &#39;x_&#39; + str(i), cdf_test)
+            df.insert(0, &#39;y_&#39; + str(i), cdf_norm)
+
+    plt.title(&#34;Normal Calibration map&#34;)
+
+    # save tikz figure
+    if tikzpath is not None:
+        tikz_fig = tikzplotlib.get_tikz_code(fig, filepath=tikzpath)
+        with open(tikzpath, &#34;w&#34;) as open_file:
+            open_file.write(tikz_fig)
+
+    if csvpath is not None:
+        df.to_csv(csvpath, index=False)
+
+    plt.show()
+
+
+
+#  ▄▀▀ ▄▀▄ █▄ ▄█ █▀▄ █ █ ▀█▀ ▄▀▄ ▀█▀ █ ▄▀▄ █▄ █ ▄▀▄ █     █ █ █▄ █ ▄▀▀ ██▀ █▀▄ ▀█▀ ▄▀▄ █ █▄ █ ▀█▀ ▀▄▀
+#  ▀▄▄ ▀▄▀ █ ▀ █ █▀  ▀▄█  █  █▀█  █  █ ▀▄▀ █ ▀█ █▀█ █▄▄   ▀▄█ █ ▀█ ▀▄▄ █▄▄ █▀▄  █  █▀█ █ █ ▀█  █   █ 
+
+
+def visualize_compstatistics(x, y_1, std_y_1=None,  label_1=&#34;y1&#34;, title=&#34;Title&#34;, tikzpath=None):
+    fig = plt.figure()
+    plt.plot(x, y_1, label=label_1, color=&#34;tab:blue&#34;)
+
+    if std_y_1 is not None:
+        plt.fill_between(x, y_1 - std_y_1, y_1 + std_y_1, color=&#34;tab:blue&#34;, alpha=0.5)
+
+    plt.xscale(&#39;log&#39;)
+    plt.legend()
+    plt.title(title)
+
+    # save tikz figure
+    if tikzpath is not None:
+        tikz_fig = tikzplotlib.get_tikz_code(fig, filepath=tikzpath)
+        with open(tikzpath, &#34;w&#34;) as open_file:
+            open_file.write(tikz_fig)
+
+    plt.show()
+
+
+def visualize_compstatistics_comparison(x, y_1, y_2, std_y_1=None, std_y_2=None, label_1=&#34;y1&#34;, label_2=&#34;y2&#34;, title=&#34;Title&#34;, tikzpath=None):
+    fig = plt.figure()
+    plt.plot(x, y_1, label=label_1, color=&#34;tab:blue&#34;)
+    plt.plot(x, y_2, label=label_2, color=&#34;tab:pink&#34;)
+
+    if std_y_1 is not None:
+        plt.fill_between(x, y_1 - std_y_1, y_1 + std_y_1, color=&#34;tab:blue&#34;, alpha=0.5)
+    if std_y_2 is not None:
+        plt.fill_between(x, y_2 - std_y_2, y_2 + std_y_2, color=&#34;tab:pink&#34;, alpha=0.5)
+
+    plt.xscale(&#39;log&#39;)
+    plt.legend()
+    plt.title(title)
+
+    # save tikz figure
+    if tikzpath is not None:
+        tikz_fig = tikzplotlib.get_tikz_code(fig, filepath=tikzpath)
+        with open(tikzpath, &#34;w&#34;) as open_file:
+            open_file.write(tikz_fig)
+
+    plt.show()
+
+
+#some colors
+dark = (0.015686275, 0.035294118, 0.149019608)
+darkblue = (0.043137255, 0.11372549, 0.470588235)
+lightgreen = (0.560784314, 0.819607843, 0.384313725)
+lightblue = (0.294117647, 0.71372549, 0.839215686)
+
+
+def visualize_math_iter(X_test_1D, Y_test, mean_prediction_math, var_prediction_math, mean_prediction_iter, var_prediction_iter, figure_num=1):
+    plt.figure(figure_num)
+
+    # true function
+    plt.plot(X_test_1D, Y_test, label=r&#34;Latent function&#34;,
+             linestyle=&#34;dashed&#34;, color=dark)
+
+    # # mathematical prediction
+    # plt.plot(X_test_1D, mean_prediction_math,
+    #          label=&#34;Mean prediction (mathematical)&#34;, color=&#34;black&#34;)
+
+    # computational prediction
+    plt.plot(X_test_1D, mean_prediction_iter,
+             label=&#34;Mean prediction (approximate)&#34;, color=darkblue)
+
+    # computational uncertainty
+    plt.fill_between(
+        X_test_1D.ravel(),
+        mean_prediction_iter - 1.96 *
+        np.sqrt(var_prediction_iter - var_prediction_math),
+        mean_prediction_iter + 1.96 *
+        np.sqrt(var_prediction_iter - var_prediction_math),
+        color=lightgreen,
+        alpha=0.5,
+        label=r&#34;95% confidence interval, computational uncertainty&#34;,
+    )
+
+    # mathematical uncertainty shade 1
+    plt.fill_between(
+        X_test_1D.ravel(),
+        mean_prediction_iter - 1.96 * np.sqrt(var_prediction_iter - var_prediction_math),
+        mean_prediction_iter - 1.96 * np.sqrt(var_prediction_iter),
+        color=lightblue,
+        alpha=0.5,
+        label=r&#34;95% confidence interval, mathematical uncertainty&#34;,
+    )
+     # mathematical uncertainty shade 2
+    plt.fill_between(
+        X_test_1D.ravel(),
+        mean_prediction_iter + 1.96 * np.sqrt(var_prediction_iter - var_prediction_math),
+        mean_prediction_iter + 1.96 * np.sqrt(var_prediction_iter),
+        color=lightblue,
+        alpha=0.7,
+    )
+
+    # # mathematical uncertainty line
+    # plt.plot(X_test_1D, mean_prediction_math - 1.96 *
+    #          np.sqrt(var_prediction_math), color=&#34;grey&#34;, linestyle=&#34;dotted&#34;)
+    # plt.plot(X_test_1D, mean_prediction_math + 1.96 *
+    #          np.sqrt(var_prediction_math), color=&#34;grey&#34;, linestyle=&#34;dotted&#34;)
+
+    #plt.legend()
+    plt.xlabel(&#34;time&#34;)
+    plt.ylabel(&#34;traction force&#34;)
+    plt.ylim=(-12.5, 7.5)
+    plt.show()
+
+
+
+#  ▄▀▄ ▀█▀ █▄█ ██▀ █▀▄
+#  ▀▄▀  █  █ █ █▄▄ █▀▄
+
+def visualize_var_decomposition(X_test_1D, var_mathematical, var_computational):
+    plt.fill_between(
+        X_test_1D.ravel(),
+        var_mathematical,
+        color=lightblue,
+        alpha=0.7,
+        label=r&#34;mathematical uncertainty&#34;,
+    )
+    plt.fill_between(
+        X_test_1D.ravel(),
+        var_mathematical,
+        var_mathematical + var_computational,
+        color=lightgreen,
+        alpha=0.5,
+        label=r&#34;compuational uncertainty&#34;,
+    )
+    #plt.legend()
+    plt.xlabel(&#34;time&#34;)
+    plt.ylabel(&#34;predicted variance&#34;)
+    plt.ylim=(0, 7)
+    plt.show()
+
+
+# Feature Selection visualization
+descriptions = [&#34;pos 1&#34;, &#34;pos 2&#34;, &#34;velocity 0&#34;, &#34;velocity 1&#34;, &#34;velocity 2&#34;,
+                &#34;angular velocity 0&#34;, &#34;angualr velocity 1&#34;, &#34;angular velocity 2&#34;, &#34;gravity 1&#34;, &#34;gravity 2&#34;]
+
+descriptions_2 = [&#34;pos 1&#34;, &#34;pos 2&#34;, &#34;velocity 0&#34;, &#34;velocity 1&#34;, &#34;velocity 2&#34;,
+                  &#34;angular velocity 0&#34;, &#34;angualr velocity 1&#34;, &#34;angular velocity 2&#34;, &#34;gravity angle&#34;]
+
+
+def visualize_feature_selection(ranks, sort=False, labels=None, title=&#34;&#34;):
+    _labels = labels if not (labels is None) else descriptions if len(ranks) == len(
+        descriptions) else descriptions_2
+    if sort:
+        combined = list(zip(_labels, ranks))
+        combined.sort(key=lambda x: x[1], reverse=True)
+        labels_sorted, ranks_sorted = zip(*combined)
+        plt.bar(labels_sorted, ranks_sorted, color=&#39;skyblue&#39;)
+    else:
+        plt.bar(_labels, ranks, color=&#39;skyblue&#39;)
+    plt.xticks(rotation=90)
+    _ = plt.title(title)
+    plt.show()
+
+
+def visualize_feature_selection_color(ranks, colors, sort=False, labels=None, title=&#34;&#34;):
+    _labels = labels if labels is not None else descriptions if len(
+        ranks) == len(descriptions) else descriptions_2
+    if sort:
+        combined = list(zip(_labels, ranks, colors))
+        combined.sort(key=lambda x: x[1], reverse=True)
+        labels_sorted, ranks_sorted, values_sorted = zip(*combined)
+        plt.bar(labels_sorted, ranks_sorted,
+                color=plt.cm.viridis(values_sorted))
+    else:
+        plt.bar(_labels, ranks, color=plt.cm.viridis(colors))
+    plt.xticks(rotation=90)
+    plt.colorbar(plt.cm.ScalarMappable(cmap=&#39;viridis&#39;), label=&#39;Color Legend&#39;)
+    _ = plt.title(title)
+    plt.show()
+
+
+def visualize_feature_selection_color_2(ranks, colors, sort=False, labels=None, color_description=&#34;&#34;, title=&#34;&#34;):
+    _labels = labels if labels is not None else descriptions if len(
+        ranks) == len(descriptions) else descriptions_2
+    if sort:
+        combined = list(zip(_labels, ranks, colors))
+        combined.sort(key=lambda x: x[1], reverse=True)
+        labels_sorted, ranks_sorted, colors_sorted = zip(*combined)
+        bars = plt.bar(labels_sorted, ranks_sorted,
+                       color=plt.cm.viridis(normalize(colors_sorted, colors)))
+    else:
+        bars = plt.bar(_labels, ranks, color=plt.cm.viridis(
+            normalize(colors, colors)))
+
+    plt.xticks(rotation=90)
+    plt.colorbar(plt.cm.ScalarMappable(cmap=&#39;viridis&#39;, norm=plt.Normalize(
+        vmin=min(colors), vmax=max(colors))), label=color_description)
+    _ = plt.title(title)
+    plt.show()
+
+
+def normalize(values, original_values):
+    return [(v - min(original_values)) / (max(original_values) - min(original_values)) for v in values]
+
+
+def visualize_matrix(data, descriptions, title=&#34;&#34;):
+    plt.imshow(data, cmap=&#39;viridis&#39;)
+    plt.xticks(range(data.shape[1]), descriptions)
+    plt.yticks(range(data.shape[0]), descriptions)
+    plt.xticks(rotation=90)
+    plt.colorbar()
+    _ = plt.title(title)
+    plt.show()</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="source.calibration_utils.visualization.normalize"><code class="name flex">
+<span>def <span class="ident">normalize</span></span>(<span>values, original_values)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def normalize(values, original_values):
+    return [(v - min(original_values)) / (max(original_values) - min(original_values)) for v in values]</code></pre>
+</details>
+</dd>
+<dt id="source.calibration_utils.visualization.visualize_all"><code class="name flex">
+<span>def <span class="ident">visualize_all</span></span>(<span>X_1D, Y, X_train_1D, Y_train, X_test_1D, mean_prediction, std_prediction)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def visualize_all(X_1D, Y, X_train_1D, Y_train, X_test_1D, mean_prediction, std_prediction):
+    # , linestyle=&#34;dotted&#34;)
+    plt.plot(X_1D, Y, label=r&#34;true data&#34;, color=&#34;tab:blue&#34;)
+    plt.plot(X_test_1D, mean_prediction,
+             label=&#34;mean prediction&#34;, color=&#34;tab:pink&#34;)
+    plt.fill_between(
+        X_test_1D.ravel(),
+        mean_prediction - 1.96 * std_prediction,
+        mean_prediction + 1.96 * std_prediction,
+        color=&#34;tab:green&#34;,
+        alpha=0.5,
+        label=r&#34;95% confidence interval (total uncertainty)&#34;,
+    )
+    plt.scatter(X_train_1D, Y_train, color=&#39;red&#39;)
+    plt.legend()
+    plt.xlabel(&#34;$x$&#34;)
+    plt.ylabel(&#34;$y$&#34;)
+    _ = plt.title(&#34;Gaussian process regression&#34;)
+    plt.show()</code></pre>
+</details>
+</dd>
+<dt id="source.calibration_utils.visualization.visualize_calibration"><code class="name flex">
+<span>def <span class="ident">visualize_calibration</span></span>(<span>X_test_1D, Y_test, calibration_outputs_norm, calibration_outputs_cdf, CIs, figure_num=1, title='MIAU', tikzpath=None, csvpath=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>calibration_outputs: [(t_values, cdf, name)]
+CIs: list of confidence intervals, ordered
+cdf: cumulative distribution functions shape (t,n,1)
+with t as the number of points that define the PDF/CDF per sample of n,
+with n as the number of samples each one corresponding to a value in the means array,</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def visualize_calibration(X_test_1D, Y_test, calibration_outputs_norm, calibration_outputs_cdf, CIs, figure_num=1, title=&#34;MIAU&#34;, tikzpath=None, csvpath=None):
+    &#34;&#34;&#34;
+    calibration_outputs: [(t_values, cdf, name)]
+    CIs: list of confidence intervals, ordered
+    cdf: cumulative distribution functions shape (t,n,1)
+        with t as the number of points that define the PDF/CDF per sample of n,
+        with n as the number of samples each one corresponding to a value in the means array,
+    &#34;&#34;&#34;
+    # colormap
+    normalized_points = np.linspace(0, 1, len(CIs))
+    # You can replace &#39;viridis&#39; with any other colormap like &#39;plasma&#39;, &#39;magma&#39;, etc.
+    colormap = plt.cm.viridis
+    colors = [colormap(1 - point) for point in normalized_points]
+
+    #plot the uncalibrated and calibrated NORM data
+    for i, (mean_prediction, std_prediction, name) in enumerate(calibration_outputs_norm):
+        mean_prediction = np.array(mean_prediction).ravel()
+        fig = plt.figure(i)
+        # true function
+        plt.plot(X_test_1D, Y_test, label=r&#34;TROLL&#34;, color=&#34;green&#34;)
+        # predicted mean
+        plt.plot(X_test_1D, mean_prediction, label=r&#34;Multi-fidelity prediction&#34;, color=&#34;blue&#34;)
+        
+        # df for csv file
+        if csvpath is not None:
+            # Create a DataFrame
+            df = pd.DataFrame()
+            df.insert(0, &#39;x&#39;, X_test_1D)
+            df.insert(0, &#39;y_test&#39;, Y_test)
+            df.insert(0, &#39;y_pred&#39;, mean_prediction)
+
+        # plot CIs
+        for j, CI in enumerate(CIs):
+            alpha = 1.0 - CI
+            plt.fill_between(
+                X_test_1D.ravel(),
+                mean_prediction - norm.ppf(1-alpha/2) * std_prediction,
+                mean_prediction + norm.ppf(1-alpha/2) * std_prediction,
+                color=colors[j],
+                alpha=1.0,
+                label=str(100*CI) + &#34;% confidence interval&#34;,
+            )
+            # df for csv file
+            if csvpath is not None:
+                df.insert(0, &#39;y_&#39;+str(int(100*CI))+&#34;_lower&#34;, mean_prediction - norm.ppf(1-alpha/2) * std_prediction)
+                df.insert(0, &#39;y_&#39;+str(int(100*CI))+&#34;_upper&#34;, mean_prediction + norm.ppf(1-alpha/2) * std_prediction)
+
+
+        plt.title(name)
+        plt.legend()
+        # save tikz figure
+        if tikzpath is not None:
+            tikz_fig = tikzplotlib.get_tikz_code(fig, filepath=tikzpath + name + &#34;.tex&#34;)
+            with open(tikzpath + name + &#34;.tex&#34;, &#34;w&#34;) as open_file:
+                open_file.write(tikz_fig)
+
+        # save csv
+        if csvpath is not None:
+            df.to_csv(csvpath + name + &#34;.csv&#34;, index=False)
+
+        plt.plot()
+
+    # plot the CDF calibrated data
+    for i, (t_values, cdf, name) in enumerate(calibration_outputs_cdf):
+        fig = plt.figure(i+len(calibration_outputs_norm))
+        # true function
+        plt.plot(X_test_1D, Y_test, label=r&#34;TROLL&#34;, color=&#34;green&#34;)
+
+        mean_calib, _ = cumulative_moments(t_values, cdf)
+        mean_calib = np.squeeze(mean_calib)
+
+        # predicted mean
+        plt.plot(X_test_1D, mean_calib,
+                 label=r&#34;Calibrated multi-fidelity prediction&#34;, color=&#34;blue&#34;)
+        
+        if csvpath is not None:
+            # Create a DataFrame
+            df = pd.DataFrame()
+            df.insert(0, &#39;x&#39;, X_test_1D)
+            df.insert(0, &#39;y_test&#39;, Y_test)
+            df.insert(0, &#39;y_pred&#39;, mean_calib)
+
+        # plot CIs NOTE CIs don&#39;t have to be centered around the mean here necessarily bc the distribution isn&#39;t normal anymore
+        n = mean_calib.shape[0]
+        for j, CI in enumerate(CIs):
+            alpha = 1.0 - CI
+            lower = np.array(
+                [np.interp(alpha/2, cdf[:, k, 0], t_values[:, k, 0]) for k in range(n)])
+            upper = np.array(
+                [np.interp(1-alpha/2, cdf[:, k, 0], t_values[:, k, 0]) for k in range(n)])
+            plt.fill_between(
+                X_test_1D.ravel(),
+                lower,
+                upper,
+                color=colors[j],
+                alpha=1.0,
+                label=str(100*CI) + &#34;% confidence interval&#34;,
+            )
+            # df for csv file
+            if csvpath is not None:
+                df.insert(0, &#39;y_&#39;+str(int(100*CI))+&#34;_lower&#34;, lower)
+                df.insert(0, &#39;y_&#39;+str(int(100*CI))+&#34;_upper&#34;, upper)
+
+        plt.title(name)
+        plt.legend()
+
+        # save tikz figure
+        if tikzpath is not None:
+            tikz_fig = tikzplotlib.get_tikz_code(fig, filepath=tikzpath + name + &#34;.tex&#34;)
+            with open(tikzpath + name + &#34;.tex&#34;, &#34;w&#34;) as open_file:
+                open_file.write(tikz_fig)
+
+        # save csv
+        if csvpath is not None:
+            df.to_csv(csvpath + name + &#34;.csv&#34;, index=False)
+
+        plt.plot()</code></pre>
+</details>
+</dd>
+<dt id="source.calibration_utils.visualization.visualize_calibration_map_Beta"><code class="name flex">
+<span>def <span class="ident">visualize_calibration_map_Beta</span></span>(<span>gpbeta_model, input_params, tikzpath=None, csvpath=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def visualize_calibration_map_Beta(gpbeta_model, input_params, tikzpath=None, csvpath=None):
+    fig = plt.figure()
+    plt.plot([0, 1], [0, 1], &#39;k--&#39;, color=&#39;gray&#39;, label=&#34;Identity map&#34;)
+
+    if csvpath is not None:
+        df = pd.DataFrame()
+
+    for i, (mu, sigma) in enumerate(input_params):
+        t_beta, _, cdf_beta = gpbeta_model.transform((np.array([mu]), np.array([sigma])))
+        cdf_beta = cdf_beta.flatten()
+        cdf_test = norm.cdf(t_beta, loc=mu, scale=sigma).flatten()
+        plt.plot(cdf_test, cdf_beta, label=&#34;μ = &#34; + str(mu) + &#34;, σ = &#34; + str(sigma))
+        if csvpath is not None:
+            df.insert(0, &#39;x_&#39; + str(i), cdf_test)
+            df.insert(0, &#39;y_&#39; + str(i), cdf_beta)
+    
+    plt.title(&#34;Beta Calibration map&#34;)
+    plt.legend()
+
+    # save tikz figure
+    if tikzpath is not None:
+        tikz_fig = tikzplotlib.get_tikz_code(fig, filepath=tikzpath)
+        with open(tikzpath, &#34;w&#34;) as open_file:
+            open_file.write(tikz_fig)
+
+    #save csv
+    if csvpath is not None:
+        df.to_csv(csvpath, index=False)
+    
+    plt.show()</code></pre>
+</details>
+</dd>
+<dt id="source.calibration_utils.visualization.visualize_calibration_map_Iso"><code class="name flex">
+<span>def <span class="ident">visualize_calibration_map_Iso</span></span>(<span>iso_model, tikzpath=None, csvpath=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def visualize_calibration_map_Iso(iso_model, tikzpath=None, csvpath=None):
+    # Obtain a dense range of x-values for prediction
+    x_dense = np.linspace(0, 1, 1000)
+    y_pred = iso_model._iso[0].predict(x_dense)
+
+    # Plot
+    fig = plt.figure()
+    plt.plot(x_dense, y_pred, label=&#34;Isotonic Regression&#34;)
+    plt.plot([0, 1], [0, 1], &#39;k--&#39;, color=&#39;gray&#39;, label=&#34;identity map&#34;)
+
+    plt.legend()
+    plt.title(&#34;Isotonic Regression CDF Map&#34;)
+
+    # save tikz figure
+    if tikzpath is not None:
+        tikz_fig = tikzplotlib.get_tikz_code(fig, filepath=tikzpath)
+        with open(tikzpath, &#34;w&#34;) as open_file:
+            open_file.write(tikz_fig)
+    
+    # save data to csv file
+    if csvpath is not None:
+        # Create a DataFrame
+        df = pd.DataFrame(y_pred, columns=[&#39;y&#39;])
+        df.insert(0, &#39;x&#39;, x_dense)
+
+        # Save the DataFrame to a CSV file
+        df.to_csv(csvpath, index=False)
+
+    plt.show()</code></pre>
+</details>
+</dd>
+<dt id="source.calibration_utils.visualization.visualize_calibration_map_Normal"><code class="name flex">
+<span>def <span class="ident">visualize_calibration_map_Normal</span></span>(<span>gpnorm_model, input_params, tikzpath=None, csvpath=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def visualize_calibration_map_Normal(gpnorm_model, input_params, tikzpath=None, csvpath=None):
+    x_values = np.linspace(-100,100,1000)
+    fig = plt.figure()
+    plt.plot([0, 1], [0, 1], &#39;k--&#39;, color=&#39;gray&#39;, label=&#34;Identity map&#34;)
+
+    if csvpath is not None:
+        df = pd.DataFrame()
+
+    for i, (mu, sigma) in enumerate(input_params):
+        std_norm = gpnorm_model.transform((np.array([mu]), np.array([sigma])))[0]
+        cdf_test = norm.cdf(x_values, loc=mu, scale=sigma).flatten()
+        cdf_norm = norm.cdf(x_values, loc=mu, scale=std_norm).flatten()
+        plt.plot(cdf_test, cdf_norm, label=&#34;$μ = &#34; + str(mu) + &#34;, σ = &#34; + str(sigma))
+        if csvpath is not None:
+            df.insert(0, &#39;x_&#39; + str(i), cdf_test)
+            df.insert(0, &#39;y_&#39; + str(i), cdf_norm)
+
+    plt.title(&#34;Normal Calibration map&#34;)
+
+    # save tikz figure
+    if tikzpath is not None:
+        tikz_fig = tikzplotlib.get_tikz_code(fig, filepath=tikzpath)
+        with open(tikzpath, &#34;w&#34;) as open_file:
+            open_file.write(tikz_fig)
+
+    if csvpath is not None:
+        df.to_csv(csvpath, index=False)
+
+    plt.show()</code></pre>
+</details>
+</dd>
+<dt id="source.calibration_utils.visualization.visualize_compstatistics"><code class="name flex">
+<span>def <span class="ident">visualize_compstatistics</span></span>(<span>x, y_1, std_y_1=None, label_1='y1', title='Title', tikzpath=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def visualize_compstatistics(x, y_1, std_y_1=None,  label_1=&#34;y1&#34;, title=&#34;Title&#34;, tikzpath=None):
+    fig = plt.figure()
+    plt.plot(x, y_1, label=label_1, color=&#34;tab:blue&#34;)
+
+    if std_y_1 is not None:
+        plt.fill_between(x, y_1 - std_y_1, y_1 + std_y_1, color=&#34;tab:blue&#34;, alpha=0.5)
+
+    plt.xscale(&#39;log&#39;)
+    plt.legend()
+    plt.title(title)
+
+    # save tikz figure
+    if tikzpath is not None:
+        tikz_fig = tikzplotlib.get_tikz_code(fig, filepath=tikzpath)
+        with open(tikzpath, &#34;w&#34;) as open_file:
+            open_file.write(tikz_fig)
+
+    plt.show()</code></pre>
+</details>
+</dd>
+<dt id="source.calibration_utils.visualization.visualize_compstatistics_comparison"><code class="name flex">
+<span>def <span class="ident">visualize_compstatistics_comparison</span></span>(<span>x, y_1, y_2, std_y_1=None, std_y_2=None, label_1='y1', label_2='y2', title='Title', tikzpath=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def visualize_compstatistics_comparison(x, y_1, y_2, std_y_1=None, std_y_2=None, label_1=&#34;y1&#34;, label_2=&#34;y2&#34;, title=&#34;Title&#34;, tikzpath=None):
+    fig = plt.figure()
+    plt.plot(x, y_1, label=label_1, color=&#34;tab:blue&#34;)
+    plt.plot(x, y_2, label=label_2, color=&#34;tab:pink&#34;)
+
+    if std_y_1 is not None:
+        plt.fill_between(x, y_1 - std_y_1, y_1 + std_y_1, color=&#34;tab:blue&#34;, alpha=0.5)
+    if std_y_2 is not None:
+        plt.fill_between(x, y_2 - std_y_2, y_2 + std_y_2, color=&#34;tab:pink&#34;, alpha=0.5)
+
+    plt.xscale(&#39;log&#39;)
+    plt.legend()
+    plt.title(title)
+
+    # save tikz figure
+    if tikzpath is not None:
+        tikz_fig = tikzplotlib.get_tikz_code(fig, filepath=tikzpath)
+        with open(tikzpath, &#34;w&#34;) as open_file:
+            open_file.write(tikz_fig)
+
+    plt.show()</code></pre>
+</details>
+</dd>
+<dt id="source.calibration_utils.visualization.visualize_feature_selection"><code class="name flex">
+<span>def <span class="ident">visualize_feature_selection</span></span>(<span>ranks, sort=False, labels=None, title='')</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def visualize_feature_selection(ranks, sort=False, labels=None, title=&#34;&#34;):
+    _labels = labels if not (labels is None) else descriptions if len(ranks) == len(
+        descriptions) else descriptions_2
+    if sort:
+        combined = list(zip(_labels, ranks))
+        combined.sort(key=lambda x: x[1], reverse=True)
+        labels_sorted, ranks_sorted = zip(*combined)
+        plt.bar(labels_sorted, ranks_sorted, color=&#39;skyblue&#39;)
+    else:
+        plt.bar(_labels, ranks, color=&#39;skyblue&#39;)
+    plt.xticks(rotation=90)
+    _ = plt.title(title)
+    plt.show()</code></pre>
+</details>
+</dd>
+<dt id="source.calibration_utils.visualization.visualize_feature_selection_color"><code class="name flex">
+<span>def <span class="ident">visualize_feature_selection_color</span></span>(<span>ranks, colors, sort=False, labels=None, title='')</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def visualize_feature_selection_color(ranks, colors, sort=False, labels=None, title=&#34;&#34;):
+    _labels = labels if labels is not None else descriptions if len(
+        ranks) == len(descriptions) else descriptions_2
+    if sort:
+        combined = list(zip(_labels, ranks, colors))
+        combined.sort(key=lambda x: x[1], reverse=True)
+        labels_sorted, ranks_sorted, values_sorted = zip(*combined)
+        plt.bar(labels_sorted, ranks_sorted,
+                color=plt.cm.viridis(values_sorted))
+    else:
+        plt.bar(_labels, ranks, color=plt.cm.viridis(colors))
+    plt.xticks(rotation=90)
+    plt.colorbar(plt.cm.ScalarMappable(cmap=&#39;viridis&#39;), label=&#39;Color Legend&#39;)
+    _ = plt.title(title)
+    plt.show()</code></pre>
+</details>
+</dd>
+<dt id="source.calibration_utils.visualization.visualize_feature_selection_color_2"><code class="name flex">
+<span>def <span class="ident">visualize_feature_selection_color_2</span></span>(<span>ranks, colors, sort=False, labels=None, color_description='', title='')</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def visualize_feature_selection_color_2(ranks, colors, sort=False, labels=None, color_description=&#34;&#34;, title=&#34;&#34;):
+    _labels = labels if labels is not None else descriptions if len(
+        ranks) == len(descriptions) else descriptions_2
+    if sort:
+        combined = list(zip(_labels, ranks, colors))
+        combined.sort(key=lambda x: x[1], reverse=True)
+        labels_sorted, ranks_sorted, colors_sorted = zip(*combined)
+        bars = plt.bar(labels_sorted, ranks_sorted,
+                       color=plt.cm.viridis(normalize(colors_sorted, colors)))
+    else:
+        bars = plt.bar(_labels, ranks, color=plt.cm.viridis(
+            normalize(colors, colors)))
+
+    plt.xticks(rotation=90)
+    plt.colorbar(plt.cm.ScalarMappable(cmap=&#39;viridis&#39;, norm=plt.Normalize(
+        vmin=min(colors), vmax=max(colors))), label=color_description)
+    _ = plt.title(title)
+    plt.show()</code></pre>
+</details>
+</dd>
+<dt id="source.calibration_utils.visualization.visualize_math_iter"><code class="name flex">
+<span>def <span class="ident">visualize_math_iter</span></span>(<span>X_test_1D, Y_test, mean_prediction_math, var_prediction_math, mean_prediction_iter, var_prediction_iter, figure_num=1)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def visualize_math_iter(X_test_1D, Y_test, mean_prediction_math, var_prediction_math, mean_prediction_iter, var_prediction_iter, figure_num=1):
+    plt.figure(figure_num)
+
+    # true function
+    plt.plot(X_test_1D, Y_test, label=r&#34;Latent function&#34;,
+             linestyle=&#34;dashed&#34;, color=dark)
+
+    # # mathematical prediction
+    # plt.plot(X_test_1D, mean_prediction_math,
+    #          label=&#34;Mean prediction (mathematical)&#34;, color=&#34;black&#34;)
+
+    # computational prediction
+    plt.plot(X_test_1D, mean_prediction_iter,
+             label=&#34;Mean prediction (approximate)&#34;, color=darkblue)
+
+    # computational uncertainty
+    plt.fill_between(
+        X_test_1D.ravel(),
+        mean_prediction_iter - 1.96 *
+        np.sqrt(var_prediction_iter - var_prediction_math),
+        mean_prediction_iter + 1.96 *
+        np.sqrt(var_prediction_iter - var_prediction_math),
+        color=lightgreen,
+        alpha=0.5,
+        label=r&#34;95% confidence interval, computational uncertainty&#34;,
+    )
+
+    # mathematical uncertainty shade 1
+    plt.fill_between(
+        X_test_1D.ravel(),
+        mean_prediction_iter - 1.96 * np.sqrt(var_prediction_iter - var_prediction_math),
+        mean_prediction_iter - 1.96 * np.sqrt(var_prediction_iter),
+        color=lightblue,
+        alpha=0.5,
+        label=r&#34;95% confidence interval, mathematical uncertainty&#34;,
+    )
+     # mathematical uncertainty shade 2
+    plt.fill_between(
+        X_test_1D.ravel(),
+        mean_prediction_iter + 1.96 * np.sqrt(var_prediction_iter - var_prediction_math),
+        mean_prediction_iter + 1.96 * np.sqrt(var_prediction_iter),
+        color=lightblue,
+        alpha=0.7,
+    )
+
+    # # mathematical uncertainty line
+    # plt.plot(X_test_1D, mean_prediction_math - 1.96 *
+    #          np.sqrt(var_prediction_math), color=&#34;grey&#34;, linestyle=&#34;dotted&#34;)
+    # plt.plot(X_test_1D, mean_prediction_math + 1.96 *
+    #          np.sqrt(var_prediction_math), color=&#34;grey&#34;, linestyle=&#34;dotted&#34;)
+
+    #plt.legend()
+    plt.xlabel(&#34;time&#34;)
+    plt.ylabel(&#34;traction force&#34;)
+    plt.ylim=(-12.5, 7.5)
+    plt.show()</code></pre>
+</details>
+</dd>
+<dt id="source.calibration_utils.visualization.visualize_matrix"><code class="name flex">
+<span>def <span class="ident">visualize_matrix</span></span>(<span>data, descriptions, title='')</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def visualize_matrix(data, descriptions, title=&#34;&#34;):
+    plt.imshow(data, cmap=&#39;viridis&#39;)
+    plt.xticks(range(data.shape[1]), descriptions)
+    plt.yticks(range(data.shape[0]), descriptions)
+    plt.xticks(rotation=90)
+    plt.colorbar()
+    _ = plt.title(title)
+    plt.show()</code></pre>
+</details>
+</dd>
+<dt id="source.calibration_utils.visualization.visualize_multiple"><code class="name flex">
+<span>def <span class="ident">visualize_multiple</span></span>(<span>X_test_1D, Y_test, predictions, figure_num=1, title='MIAU', csvpath=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def visualize_multiple(X_test_1D, Y_test, predictions, figure_num=1, title=&#34;MIAU&#34;, csvpath=None):
+    plt.figure(figure_num)
+    plt.plot(X_test_1D, Y_test, label=r&#34;true data&#34;,
+             color=&#34;black&#34;)  # , linestyle=&#34;dotted&#34;)
+    if csvpath is not None:
+        df = pd.DataFrame()
+        df[&#39;x&#39;] = X_test_1D
+        df[&#39;y&#39;] = Y_test
+
+    for prediction in predictions:
+        plt.plot(X_test_1D, prediction[&#34;mean&#34;], label=prediction[&#34;name&#34;] +
+                 &#34; mean prediction&#34;, color=prediction[&#34;color&#34;])
+        plt.fill_between(
+            X_test_1D.ravel(),
+            prediction[&#34;mean&#34;] - 1.96 * np.sqrt(prediction[&#34;var&#34;]),
+            prediction[&#34;mean&#34;] + 1.96 * np.sqrt(prediction[&#34;var&#34;]),
+            color=prediction[&#34;color&#34;],
+            alpha=0.5,
+            label=prediction[&#34;name&#34;] + r&#34; 95% confidence interval&#34;,
+        )
+        if csvpath is not None:
+            df[prediction[&#34;name&#34;] + &#34;_mean&#34;] = prediction[&#34;mean&#34;].to_numpy()
+            df[prediction[&#34;name&#34;] + &#34;_upper_CI&#34;] = (prediction[&#34;mean&#34;] + 1.96 * np.sqrt(prediction[&#34;var&#34;])).to_numpy()
+            df[prediction[&#34;name&#34;] + &#34;_lower_CI&#34;] = (prediction[&#34;mean&#34;] - 1.96 * np.sqrt(prediction[&#34;var&#34;])).to_numpy()
+    
+    df[&#39;lower_CI&#39;] = df[[prediction[&#34;name&#34;] + &#34;_lower_CI&#34; for prediction in predictions]].max(axis=1)
+    df[&#39;upper_CI&#39;] = df[[prediction[&#34;name&#34;] + &#34;_upper_CI&#34; for prediction in predictions]].min(axis=1)
+
+    plt.legend()
+    plt.xlabel(&#34;$x$&#34;)
+    plt.ylabel(&#34;$y$&#34;)
+    _ = plt.title(title)
+
+
+    # save csv
+    if csvpath is not None:
+        df.to_csv(csvpath, index=False)
+
+    plt.show()</code></pre>
+</details>
+</dd>
+<dt id="source.calibration_utils.visualization.visualize_test"><code class="name flex">
+<span>def <span class="ident">visualize_test</span></span>(<span>X_test_1D, Y_test, mean_prediction, std_prediction, epistemic_std=None, figure_num=1, title='MIAU')</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def visualize_test(X_test_1D, Y_test, mean_prediction, std_prediction, epistemic_std=None, figure_num=1, title=&#34;MIAU&#34;):
+    plt.figure(figure_num)
+    plt.plot(X_test_1D, Y_test, label=r&#34;true data&#34;,
+             color=&#34;tab:blue&#34;)  # , linestyle=&#34;dotted&#34;)
+    plt.plot(X_test_1D, mean_prediction,
+             label=&#34;mean prediction&#34;, color=&#34;tab:pink&#34;)
+    plt.fill_between(
+        X_test_1D.ravel(),
+        mean_prediction - 1.96 * std_prediction,
+        mean_prediction + 1.96 * std_prediction,
+        color=&#34;tab:green&#34;,
+        alpha=0.5,
+        label=r&#34;95% confidence interval&#34;,
+    )
+    if epistemic_std is not None:
+        plt.fill_between(
+            X_test_1D.ravel(),
+            mean_prediction - 1.96 * epistemic_std,
+            mean_prediction + 1.96 * epistemic_std,
+            color=&#34;tab:blue&#34;,
+            alpha=0.5,
+            label=r&#34;95% confidence interval epistemic&#34;,
+        )
+    plt.legend()
+    plt.xlabel(&#34;$x$&#34;)
+    plt.ylabel(&#34;$y$&#34;)
+    _ = plt.title(title)
+    plt.show()</code></pre>
+</details>
+</dd>
+<dt id="source.calibration_utils.visualization.visualize_var_decomposition"><code class="name flex">
+<span>def <span class="ident">visualize_var_decomposition</span></span>(<span>X_test_1D, var_mathematical, var_computational)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def visualize_var_decomposition(X_test_1D, var_mathematical, var_computational):
+    plt.fill_between(
+        X_test_1D.ravel(),
+        var_mathematical,
+        color=lightblue,
+        alpha=0.7,
+        label=r&#34;mathematical uncertainty&#34;,
+    )
+    plt.fill_between(
+        X_test_1D.ravel(),
+        var_mathematical,
+        var_mathematical + var_computational,
+        color=lightgreen,
+        alpha=0.5,
+        label=r&#34;compuational uncertainty&#34;,
+    )
+    #plt.legend()
+    plt.xlabel(&#34;time&#34;)
+    plt.ylabel(&#34;predicted variance&#34;)
+    plt.ylim=(0, 7)
+    plt.show()</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="source.calibration_utils" href="index.html">source.calibration_utils</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="source.calibration_utils.visualization.normalize" href="#source.calibration_utils.visualization.normalize">normalize</a></code></li>
+<li><code><a title="source.calibration_utils.visualization.visualize_all" href="#source.calibration_utils.visualization.visualize_all">visualize_all</a></code></li>
+<li><code><a title="source.calibration_utils.visualization.visualize_calibration" href="#source.calibration_utils.visualization.visualize_calibration">visualize_calibration</a></code></li>
+<li><code><a title="source.calibration_utils.visualization.visualize_calibration_map_Beta" href="#source.calibration_utils.visualization.visualize_calibration_map_Beta">visualize_calibration_map_Beta</a></code></li>
+<li><code><a title="source.calibration_utils.visualization.visualize_calibration_map_Iso" href="#source.calibration_utils.visualization.visualize_calibration_map_Iso">visualize_calibration_map_Iso</a></code></li>
+<li><code><a title="source.calibration_utils.visualization.visualize_calibration_map_Normal" href="#source.calibration_utils.visualization.visualize_calibration_map_Normal">visualize_calibration_map_Normal</a></code></li>
+<li><code><a title="source.calibration_utils.visualization.visualize_compstatistics" href="#source.calibration_utils.visualization.visualize_compstatistics">visualize_compstatistics</a></code></li>
+<li><code><a title="source.calibration_utils.visualization.visualize_compstatistics_comparison" href="#source.calibration_utils.visualization.visualize_compstatistics_comparison">visualize_compstatistics_comparison</a></code></li>
+<li><code><a title="source.calibration_utils.visualization.visualize_feature_selection" href="#source.calibration_utils.visualization.visualize_feature_selection">visualize_feature_selection</a></code></li>
+<li><code><a title="source.calibration_utils.visualization.visualize_feature_selection_color" href="#source.calibration_utils.visualization.visualize_feature_selection_color">visualize_feature_selection_color</a></code></li>
+<li><code><a title="source.calibration_utils.visualization.visualize_feature_selection_color_2" href="#source.calibration_utils.visualization.visualize_feature_selection_color_2">visualize_feature_selection_color_2</a></code></li>
+<li><code><a title="source.calibration_utils.visualization.visualize_math_iter" href="#source.calibration_utils.visualization.visualize_math_iter">visualize_math_iter</a></code></li>
+<li><code><a title="source.calibration_utils.visualization.visualize_matrix" href="#source.calibration_utils.visualization.visualize_matrix">visualize_matrix</a></code></li>
+<li><code><a title="source.calibration_utils.visualization.visualize_multiple" href="#source.calibration_utils.visualization.visualize_multiple">visualize_multiple</a></code></li>
+<li><code><a title="source.calibration_utils.visualization.visualize_test" href="#source.calibration_utils.visualization.visualize_test">visualize_test</a></code></li>
+<li><code><a title="source.calibration_utils.visualization.visualize_var_decomposition" href="#source.calibration_utils.visualization.visualize_var_decomposition">visualize_var_decomposition</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

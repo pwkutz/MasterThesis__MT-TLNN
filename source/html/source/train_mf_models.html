@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>source.train_mf_models API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>source.train_mf_models</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import pickle
+import numpy as np
+from sklearn.metrics import mean_squared_error
+import tensorflow as tf
+from source.utils.deepGP_mudafgp import create_model_deep_gp
+from mfgp.adaptation_maximizers import ScipyDirectMaximizer
+import mfgp.models as models
+import GPy
+import matplotlib.pyplot as plt
+from tqdm import tqdm
+
+input_dim = 12
+
+def save_weights(model, method, model_name):
+    # save weights
+    with open(&#39;models_weights/&#39; + model_name +&#39;_&#39; + method + &#39;.pkl&#39;, &#39;wb&#39;) as file:
+        pickle.dump(model, file)
+
+def mse_distr(model, num_tests, X_hf_test, y_hf_test, output_index, model_name):
+    # error distribution and it mean calculation
+    error = []
+    if model_name == &#34;AR1&#34;:
+        for test_id in tqdm(range(num_tests)):
+            mean, var = model.predict(tf.convert_to_tensor(X_hf_test[test_id]), level=-1) # 
+            error.append(mean_squared_error(mean, y_hf_test[test_id][:, output_index][:, None])) #
+    else:
+        for test_id in tqdm(range(num_tests)):
+            mean, var = model.predict(X_hf_test[test_id])
+            error.append(mean_squared_error(mean, y_hf_test[test_id][:, output_index][:, None])) #
+    return error
+
+def train_model(model_name, output_index, lf, sampling_rate_hf, X_lf, X_hf, y_lf, y_hf, num_delays = 0, tau = None):
+    lower_bound, upper_bound = np.min(np.concatenate([np.min(X_hf, axis=0)[None], np.min(X_lf, axis=0)[None]], axis=0), axis=0), np.max(np.concatenate([np.max(X_hf, axis=0)[None], np.max(X_lf, axis=0)[None]], axis=0), axis=0)
+
+    if model_name == &#34;AR1&#34;:
+        # AR1
+        f_list = [None, None]
+        X_train = [tf.convert_to_tensor(X_lf), tf.convert_to_tensor(X_hf)]
+        model = models.AR1(input_dim, f_list, lower_bound, upper_bound)
+        model.set_training_data(X_train, [tf.convert_to_tensor(y_lf[:, output_index][:, None]), tf.convert_to_tensor(y_hf[:, output_index][:, None])])
+        model.fit()
+        print(&#34;Negative of likelihood before optimisation&#34;, model.neg_unnormalised_log_likelihood())
+        model.ARD()
+        print(&#34;negative of likelihood after optimisation&#34;, model.neg_unnormalised_log_likelihood())
+
+    elif model_name in [&#34;NARGP&#34;, &#34;GPDF&#34;, &#34;GPDFC&#34;]:
+        if model_name == &#34;NARGP&#34;:
+            # NARGP
+            model = models.NARGP(input_dim, None, lf, lower_bound, upper_bound)
+            model.fit_with_val(X_hf[::sampling_rate_hf], y_hf[:, output_index][:, None][::sampling_rate_hf])
+        else:
+            # GPDF(C)
+            model = models.__getattribute__(model_name)(input_dim, 1.0, 1, None, lf, lower_bound, upper_bound)
+            model.fit_with_val(X_hf[::sampling_rate_hf], y_hf[:, output_index][:, None][::sampling_rate_hf])
+
+    elif model_name in [&#34;NARDGP&#34;, &#34;DGPDF&#34;, &#34;DGPDFC&#34;]:
+        ### deep Gaussians
+        _, model = create_model_deep_gp(model_name, input_dim, [lf, None], X_lf, X_hf, y_lf[:, output_index][:,None], y_hf[:, output_index][:,None], num_delays, tau, lower_bound, upper_bound, ScipyDirectMaximizer(), eps=1e-6)
+
+    elif model_name == &#34;single&#34;:
+        # single fidelity GP
+        k1 = GPy.kern.RBF(input_dim, ARD=True)
+        model = GPy.models.GPRegression(X=X_hf[::sampling_rate_hf], Y=y_hf[:, output_index][:, None][::sampling_rate_hf], kernel=k1)
+        #gp_high[&#34;.*Gaussian_noise&#34;] = gp_high.Y.var()*0.0001 # this could be derived from the high-frequencies forces after filtering (gp_high.Y.var = ...?)
+        #gp_medium[&#34;.*Gaussian_noise&#34;].fix() # don&#39;t wtf is it
+        model.optimize(max_iters = 500)
+
+    return model
+
+def train_zoo(n_all_runs, train_share, X_hf_test, y_hf_test, output_index, lf_gp_sur, sampling_rate_hf_vectr, X_lf, X_hf, y_lf, y_hf, num_delays = 1, tau = 0.1):
+    errors_wrt_samplimg = {}
+    
+    for sampling_rate_hf in sampling_rate_hf_vectr: # arbitrary chosen numbers of HF training points
+        errors_scm_as_lf = []
+        for model_name in [&#34;single&#34;, &#34;AR1&#34;, &#34;NARGP&#34;, &#34;GPDF&#34;, &#34;GPDFC&#34;, &#34;NARDGP&#34;, &#34;DGPDF&#34;, &#34;DGPDFC&#34;]: # list all the methods included here
+            if model_name in [&#34;DGPDF&#34;, &#34;DGPDFC&#34;]:
+                model = train_model(model_name, output_index, lf_gp_sur, sampling_rate_hf, X_lf, X_hf, y_lf, y_hf, num_delays = num_delays, tau = tau)
+                errors_scm_as_lf.append(mse_distr(model, int(n_all_runs*(1-train_share)), X_hf_test, y_hf_test, 0, model_name))
+            else:
+                model = train_model(model_name, output_index, lf_gp_sur, sampling_rate_hf, X_lf, X_hf, y_lf, y_hf, num_delays = 0, tau = 0)
+                errors_scm_as_lf.append(mse_distr(model, int(n_all_runs*(1-train_share)), X_hf_test, y_hf_test, 0, model_name))
+        errors_wrt_samplimg[sampling_rate_hf] = errors_scm_as_lf
+
+    with open(&#39;D:/Vlad/mufintroll/results/results_&#39; + lf_gp_sur.__name__ + &#39;.pkl&#39;, &#39;wb&#39;) as file:
+        pickle.dump(errors_wrt_samplimg, file)
+
+    return 
+
+def visualize_mf(output_index, lf_gp_sur, sampling_rate_hf, X_lf, X_hf, y_lf, y_hf, X_hf_test, y_hf_test, train_test_dataset_from_troll):
+    nardgp = train_model(&#34;NARDGP&#34;, output_index, lf_gp_sur, sampling_rate_hf, X_lf, X_hf, y_lf, y_hf, num_delays = 0, tau = 0)
+    single_gp = train_model(&#34;single&#34;, output_index, lf_gp_sur, sampling_rate_hf, X_lf, X_hf, y_lf, y_hf, num_delays = 0, tau = 0)
+    for i in range(len(X_hf_test)):
+        mean, var = nardgp.predict(X_hf_test[i])
+        mean_singl, var_singl = single_gp.predict(X_hf_test[i])
+
+        plt.figure(figsize=(15, 5))
+        plt.plot(np.linspace(0, len(X_hf_test[i])*sampling_rate_hf/60, len((X_hf_test[i]))), np.array(mean).ravel(), label = &#34;NARDGP prediction&#34;) 
+        plt.fill_between(np.linspace(0, len(X_hf_test[i])*sampling_rate_hf/60, len(X_hf_test[i])),
+                np.array(mean).ravel() - np.sqrt(np.abs(var)).ravel(), 
+                np.array(mean).ravel() + np.sqrt(np.abs(var)).ravel(), 
+                alpha = 0.2, ec=&#39;None&#39;, label=&#39;NARDGP 95% confidence&#39;)
+        plt.plot(np.linspace(0, len(X_hf_test[i])*sampling_rate_hf/60, len((X_hf_test[i]))), np.array(mean_singl).ravel(), label = &#34;single fidelity prediction&#34;) 
+        plt.fill_between(np.linspace(0, len(X_hf_test[i])*sampling_rate_hf/60, len(X_hf_test[i])),
+                np.array(mean_singl).ravel() - np.sqrt(np.abs(var_singl)).ravel(), 
+                np.array(mean_singl).ravel() + np.sqrt(np.abs(var_singl)).ravel(), 
+                alpha = 0.2, ec=&#39;None&#39;, label=&#39;single fidelity 95% confidence&#39;)
+        plt.plot(np.linspace(0, len(X_hf_test[i])*sampling_rate_hf/60, len(X_hf_test[i])), y_hf_test[i][:, 0][:, None], label = &#34;TROLL&#34;)
+        plt.plot(np.linspace(0, len(X_hf_test[i])*sampling_rate_hf/60, len(X_hf_test[i])), train_test_dataset_from_troll.dataset[&#39;scm&#39;].train_test_dataset[&#39;test&#39;][&#39;y&#39;][i][:, 0][:, None], label = &#34;SCM&#34;)
+        plt.xlabel(&#34;run time, [s]&#34;)
+        plt.ylabel(&#34;traction force, [N]&#34;)
+        plt.legend(fontsize=10)
+        plt.grid(True)
+        plt.savefig(&#39;D://Vlad/plots_for_MuDaFuGP/preds_vis/preds_vis&#39; + str(i) + &#39;.pdf&#39;, bbox_inches=&#39;tight&#39;)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="source.train_mf_models.mse_distr"><code class="name flex">
+<span>def <span class="ident">mse_distr</span></span>(<span>model, num_tests, X_hf_test, y_hf_test, output_index, model_name)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def mse_distr(model, num_tests, X_hf_test, y_hf_test, output_index, model_name):
+    # error distribution and it mean calculation
+    error = []
+    if model_name == &#34;AR1&#34;:
+        for test_id in tqdm(range(num_tests)):
+            mean, var = model.predict(tf.convert_to_tensor(X_hf_test[test_id]), level=-1) # 
+            error.append(mean_squared_error(mean, y_hf_test[test_id][:, output_index][:, None])) #
+    else:
+        for test_id in tqdm(range(num_tests)):
+            mean, var = model.predict(X_hf_test[test_id])
+            error.append(mean_squared_error(mean, y_hf_test[test_id][:, output_index][:, None])) #
+    return error</code></pre>
+</details>
+</dd>
+<dt id="source.train_mf_models.save_weights"><code class="name flex">
+<span>def <span class="ident">save_weights</span></span>(<span>model, method, model_name)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def save_weights(model, method, model_name):
+    # save weights
+    with open(&#39;models_weights/&#39; + model_name +&#39;_&#39; + method + &#39;.pkl&#39;, &#39;wb&#39;) as file:
+        pickle.dump(model, file)</code></pre>
+</details>
+</dd>
+<dt id="source.train_mf_models.train_model"><code class="name flex">
+<span>def <span class="ident">train_model</span></span>(<span>model_name, output_index, lf, sampling_rate_hf, X_lf, X_hf, y_lf, y_hf, num_delays=0, tau=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def train_model(model_name, output_index, lf, sampling_rate_hf, X_lf, X_hf, y_lf, y_hf, num_delays = 0, tau = None):
+    lower_bound, upper_bound = np.min(np.concatenate([np.min(X_hf, axis=0)[None], np.min(X_lf, axis=0)[None]], axis=0), axis=0), np.max(np.concatenate([np.max(X_hf, axis=0)[None], np.max(X_lf, axis=0)[None]], axis=0), axis=0)
+
+    if model_name == &#34;AR1&#34;:
+        # AR1
+        f_list = [None, None]
+        X_train = [tf.convert_to_tensor(X_lf), tf.convert_to_tensor(X_hf)]
+        model = models.AR1(input_dim, f_list, lower_bound, upper_bound)
+        model.set_training_data(X_train, [tf.convert_to_tensor(y_lf[:, output_index][:, None]), tf.convert_to_tensor(y_hf[:, output_index][:, None])])
+        model.fit()
+        print(&#34;Negative of likelihood before optimisation&#34;, model.neg_unnormalised_log_likelihood())
+        model.ARD()
+        print(&#34;negative of likelihood after optimisation&#34;, model.neg_unnormalised_log_likelihood())
+
+    elif model_name in [&#34;NARGP&#34;, &#34;GPDF&#34;, &#34;GPDFC&#34;]:
+        if model_name == &#34;NARGP&#34;:
+            # NARGP
+            model = models.NARGP(input_dim, None, lf, lower_bound, upper_bound)
+            model.fit_with_val(X_hf[::sampling_rate_hf], y_hf[:, output_index][:, None][::sampling_rate_hf])
+        else:
+            # GPDF(C)
+            model = models.__getattribute__(model_name)(input_dim, 1.0, 1, None, lf, lower_bound, upper_bound)
+            model.fit_with_val(X_hf[::sampling_rate_hf], y_hf[:, output_index][:, None][::sampling_rate_hf])
+
+    elif model_name in [&#34;NARDGP&#34;, &#34;DGPDF&#34;, &#34;DGPDFC&#34;]:
+        ### deep Gaussians
+        _, model = create_model_deep_gp(model_name, input_dim, [lf, None], X_lf, X_hf, y_lf[:, output_index][:,None], y_hf[:, output_index][:,None], num_delays, tau, lower_bound, upper_bound, ScipyDirectMaximizer(), eps=1e-6)
+
+    elif model_name == &#34;single&#34;:
+        # single fidelity GP
+        k1 = GPy.kern.RBF(input_dim, ARD=True)
+        model = GPy.models.GPRegression(X=X_hf[::sampling_rate_hf], Y=y_hf[:, output_index][:, None][::sampling_rate_hf], kernel=k1)
+        #gp_high[&#34;.*Gaussian_noise&#34;] = gp_high.Y.var()*0.0001 # this could be derived from the high-frequencies forces after filtering (gp_high.Y.var = ...?)
+        #gp_medium[&#34;.*Gaussian_noise&#34;].fix() # don&#39;t wtf is it
+        model.optimize(max_iters = 500)
+
+    return model</code></pre>
+</details>
+</dd>
+<dt id="source.train_mf_models.train_zoo"><code class="name flex">
+<span>def <span class="ident">train_zoo</span></span>(<span>n_all_runs, train_share, X_hf_test, y_hf_test, output_index, lf_gp_sur, sampling_rate_hf_vectr, X_lf, X_hf, y_lf, y_hf, num_delays=1, tau=0.1)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def train_zoo(n_all_runs, train_share, X_hf_test, y_hf_test, output_index, lf_gp_sur, sampling_rate_hf_vectr, X_lf, X_hf, y_lf, y_hf, num_delays = 1, tau = 0.1):
+    errors_wrt_samplimg = {}
+    
+    for sampling_rate_hf in sampling_rate_hf_vectr: # arbitrary chosen numbers of HF training points
+        errors_scm_as_lf = []
+        for model_name in [&#34;single&#34;, &#34;AR1&#34;, &#34;NARGP&#34;, &#34;GPDF&#34;, &#34;GPDFC&#34;, &#34;NARDGP&#34;, &#34;DGPDF&#34;, &#34;DGPDFC&#34;]: # list all the methods included here
+            if model_name in [&#34;DGPDF&#34;, &#34;DGPDFC&#34;]:
+                model = train_model(model_name, output_index, lf_gp_sur, sampling_rate_hf, X_lf, X_hf, y_lf, y_hf, num_delays = num_delays, tau = tau)
+                errors_scm_as_lf.append(mse_distr(model, int(n_all_runs*(1-train_share)), X_hf_test, y_hf_test, 0, model_name))
+            else:
+                model = train_model(model_name, output_index, lf_gp_sur, sampling_rate_hf, X_lf, X_hf, y_lf, y_hf, num_delays = 0, tau = 0)
+                errors_scm_as_lf.append(mse_distr(model, int(n_all_runs*(1-train_share)), X_hf_test, y_hf_test, 0, model_name))
+        errors_wrt_samplimg[sampling_rate_hf] = errors_scm_as_lf
+
+    with open(&#39;D:/Vlad/mufintroll/results/results_&#39; + lf_gp_sur.__name__ + &#39;.pkl&#39;, &#39;wb&#39;) as file:
+        pickle.dump(errors_wrt_samplimg, file)
+
+    return </code></pre>
+</details>
+</dd>
+<dt id="source.train_mf_models.visualize_mf"><code class="name flex">
+<span>def <span class="ident">visualize_mf</span></span>(<span>output_index, lf_gp_sur, sampling_rate_hf, X_lf, X_hf, y_lf, y_hf, X_hf_test, y_hf_test, train_test_dataset_from_troll)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def visualize_mf(output_index, lf_gp_sur, sampling_rate_hf, X_lf, X_hf, y_lf, y_hf, X_hf_test, y_hf_test, train_test_dataset_from_troll):
+    nardgp = train_model(&#34;NARDGP&#34;, output_index, lf_gp_sur, sampling_rate_hf, X_lf, X_hf, y_lf, y_hf, num_delays = 0, tau = 0)
+    single_gp = train_model(&#34;single&#34;, output_index, lf_gp_sur, sampling_rate_hf, X_lf, X_hf, y_lf, y_hf, num_delays = 0, tau = 0)
+    for i in range(len(X_hf_test)):
+        mean, var = nardgp.predict(X_hf_test[i])
+        mean_singl, var_singl = single_gp.predict(X_hf_test[i])
+
+        plt.figure(figsize=(15, 5))
+        plt.plot(np.linspace(0, len(X_hf_test[i])*sampling_rate_hf/60, len((X_hf_test[i]))), np.array(mean).ravel(), label = &#34;NARDGP prediction&#34;) 
+        plt.fill_between(np.linspace(0, len(X_hf_test[i])*sampling_rate_hf/60, len(X_hf_test[i])),
+                np.array(mean).ravel() - np.sqrt(np.abs(var)).ravel(), 
+                np.array(mean).ravel() + np.sqrt(np.abs(var)).ravel(), 
+                alpha = 0.2, ec=&#39;None&#39;, label=&#39;NARDGP 95% confidence&#39;)
+        plt.plot(np.linspace(0, len(X_hf_test[i])*sampling_rate_hf/60, len((X_hf_test[i]))), np.array(mean_singl).ravel(), label = &#34;single fidelity prediction&#34;) 
+        plt.fill_between(np.linspace(0, len(X_hf_test[i])*sampling_rate_hf/60, len(X_hf_test[i])),
+                np.array(mean_singl).ravel() - np.sqrt(np.abs(var_singl)).ravel(), 
+                np.array(mean_singl).ravel() + np.sqrt(np.abs(var_singl)).ravel(), 
+                alpha = 0.2, ec=&#39;None&#39;, label=&#39;single fidelity 95% confidence&#39;)
+        plt.plot(np.linspace(0, len(X_hf_test[i])*sampling_rate_hf/60, len(X_hf_test[i])), y_hf_test[i][:, 0][:, None], label = &#34;TROLL&#34;)
+        plt.plot(np.linspace(0, len(X_hf_test[i])*sampling_rate_hf/60, len(X_hf_test[i])), train_test_dataset_from_troll.dataset[&#39;scm&#39;].train_test_dataset[&#39;test&#39;][&#39;y&#39;][i][:, 0][:, None], label = &#34;SCM&#34;)
+        plt.xlabel(&#34;run time, [s]&#34;)
+        plt.ylabel(&#34;traction force, [N]&#34;)
+        plt.legend(fontsize=10)
+        plt.grid(True)
+        plt.savefig(&#39;D://Vlad/plots_for_MuDaFuGP/preds_vis/preds_vis&#39; + str(i) + &#39;.pdf&#39;, bbox_inches=&#39;tight&#39;)</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="source" href="index.html">source</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="source.train_mf_models.mse_distr" href="#source.train_mf_models.mse_distr">mse_distr</a></code></li>
+<li><code><a title="source.train_mf_models.save_weights" href="#source.train_mf_models.save_weights">save_weights</a></code></li>
+<li><code><a title="source.train_mf_models.train_model" href="#source.train_mf_models.train_model">train_model</a></code></li>
+<li><code><a title="source.train_mf_models.train_zoo" href="#source.train_mf_models.train_zoo">train_zoo</a></code></li>
+<li><code><a title="source.train_mf_models.visualize_mf" href="#source.train_mf_models.visualize_mf">visualize_mf</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

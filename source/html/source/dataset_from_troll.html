@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>source.dataset_from_troll API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>source.dataset_from_troll</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import numpy as np
+from glob import glob
+import h5py
+import json
+from tqdm import tqdm
+
+from source.abstract_dataset import AbstrTerMechDataset
+#from source.troll_to_modelica import load_troll_data, transform_run
+from source.utils.preprocessing import gauss_ma, extract_data_from_run #arm_acceleration,
+from sklearn.metrics import mean_squared_error
+# setting for tqdm
+green = &#34;\033[32;20;53m&#34;
+bar_format = f&#34;{green}{{l_bar}}{{bar:50}} [{{elapsed}}]{{r_bar}}&#34;
+
+class DatasetTroll:
+    def __init__(self, train_share = 1, timeshift = False, use_only_flat_runs = True, selected_runs = None, troll_raw_data_location = &#34;H:/NOT_SAVED_TO_BACKUP/TROLL_data/vlad/&#34;, modelica_data_from_troll_location = &#34;H:/NOT_SAVED_TO_BACKUP/data_backup/all_runs_from_troll_unvalidated.h5&#34;, points_per_second = 1, timestep = None, num_used_runs = None, json_w_runs_id = &#39;parameters/runs_id.json&#39;): #, json_w_start_times = &#39;parameters/analyazable_starttime.json&#39;, json_w_stop_times = &#34;parameters/runs_stop_time.json&#34;):
+        self.troll_raw_data_location = troll_raw_data_location
+        self.modelica_data_from_troll_location = modelica_data_from_troll_location
+        self.train_share = train_share
+        self.timeshift = timeshift
+
+        with open(json_w_runs_id) as data_file:
+            self.runs = json.load(data_file)
+        self.flat_runs = np.array(self.runs[&#34;flat_runs&#34;])
+        self.bump_runs = np.array(self.runs[&#34;bump_runs&#34;])
+        self.points_per_second = points_per_second
+        self.timestep = timestep
+        self.use_only_flat_runs = use_only_flat_runs
+
+        # by default we are using ALL flat runs
+        if self.use_only_flat_runs and selected_runs == None:
+            self.used_runs = self.flat_runs
+        else:
+            self.used_runs = selected_runs
+
+        ### how many runs we want to use?
+        if num_used_runs is not None:
+            self.used_runs = np.random.choice(self.used_runs, num_used_runs, replace=False)
+
+        # determine from which second the troll data are usable (after one full turn of the wheel)
+        # for the next runs (with bumps, where v=0.15) haven&#39;t calculated starttime exactly - only approx
+        # slippage-starttime relationaship is exponential
+        # with open(json_w_start_times) as data_file:
+        #    self.analyazable_starttime = json.load(data_file)
+
+        # time duration of each run can vary quite high, from 5 to 80 seconds
+        #with open(json_w_stop_times) as data_file:
+        #    self.troll_runs_stop_time = json.load(data_file)
+            
+        terra, scm, troll = self.create_datasets(self.used_runs, self.points_per_second, self.timestep)
+        self.dataset = {&#34;terra&#34;: terra,
+                        &#34;scm&#34; : scm,
+                        &#34;troll&#34;: troll}
+
+    def info():
+        print(&#34;Data generated from TROLL runs, conducted from X.12.2022 till 31.01.2023 with 52 (44 are actually used) flat runs and 13 runs with surface distortions (bumps and pits). \n TerRA and SCM datasets were created on TROLL trajectories, using TrollInput from ContactDynamics library. Modified version of TrollInput which was used here could be found on dev-vlad branch. \n Numerical solver: Rkfix4 \n Parameters used in Modelica in order to adjust generated TerRA and SCM data to TROLL data: \n z_offset = 0.0115 for SCM amd 0.0065 for TerRA. \n scm_step = 0.03 \n overall modelica solver step == 0.03 (for SCM) and 0.001 for TerRA \n To check optimization or optimize data generation hyperparameters look in &#39;optimization.ipynb&#39; \n To validate the data, call &#39;data_validation&#39;&#34;)
+   
+    def return_sim_mse(self, method):
+        # show average MSE for SCM or TerRA
+        error = []
+        for test_id in range(int(len(self.used_runs)*(1-self.train_share))):
+            error.append(mean_squared_error(self.dataset[method].train_test_dataset[&#39;test&#39;][&#39;y&#39;][test_id][:, 0][:, None], 
+                                            self.dataset[&#39;troll&#39;].train_test_dataset[&#39;test&#39;][&#39;y&#39;][test_id][:, 0][:, None]))
+        return np.mean(error)
+
+    def smooth_simulations(self, unsmoothed_data, start_time, stop_time, points_per_second):
+        smoothed_data = []
+        # go over columns
+        for i in range(unsmoothed_data.shape[1]):
+            smoothed_data.append(gauss_ma(unsmoothed_data[:, i], desired_lenght = round(stop_time-start_time)*points_per_second, overlap = points_per_second))
+        smoothed_data = np.array(smoothed_data)
+        smoothed_data = smoothed_data.transpose()
+        return smoothed_data
+    
+    &#39;&#39;&#39;  
+    def define_troll_gravity_vec(self, nrow_troll):
+        if self.use_only_flat_runs:
+            gravity_vec = np.concatenate([np.zeros(nrow_troll)[:, None], np.zeros(nrow_troll)[:, None], -1*np.ones(nrow_troll)[:, None]], axis=1)
+        else:
+            ######### TODO ###########
+            ### find a gravity angle using... soil profile/sinkage? Or this possible only with the upload of the surface? then only through Modelica? Or somehow run it once and store somewhere?
+            gravity_vec = None
+            ##########################
+        return gravity_vec
+      
+    def extract_data_from_run(self, method, troll_id):
+        # remeber to use specifi starting time-points (due to different slippage rate - we should analyze wheel&#39;s movement only after one full cicle of the wheel has been traversed)
+        start_time = float([x for x in self.analyazable_starttime if troll_id in self.analyazable_starttime[x]][0])
+        stop_time = float(self.troll_runs_stop_time[str(troll_id)])
+        # preprocessing for TROLL and for TerRA&amp;SCM is a little bit different
+        if method == &#34;troll&#34;:
+            troll_run_name = glob(self.troll_raw_data_location+&#34;*&#34;+str(troll_id)+&#34;*&#34;)[0]
+            troll_run = load_troll_data(troll_run_name, mode=&#34;analysis&#34;)
+            troll_dataset = transform_run(troll_run)
+            start_indx = np.where(troll_dataset[:, 0] &gt; start_time)[0][0]
+            # filter out effect of a robotic arm acceleration
+            a_tcp_rotated = arm_acceleration(troll_run)
+            # compensate troll forces with the robotic arm acceleration
+            current_y = troll_dataset[:, 14:17] + 20.97*a_tcp_rotated # all forces, don&#39;t compansate torques
+            current_y = np.concatenate([current_y, troll_dataset[:, 17:20]], axis=1) # attached torques
+            current_y = current_y[start_indx:] 
+            ## data extraction from TROLL is a bit different, but some Modelica code depends on it, so don&#39;t change 
+            troll_gravity_vec = self.define_troll_gravity_vec(current_y.shape[0])
+            # convert troll X columns structure to the TerRA\SCM columns structure
+            current_X = np.concatenate([troll_dataset[start_indx:, 1:3], troll_dataset[start_indx:, 5:7], troll_dataset[start_indx:, 11:13], troll_gravity_vec], axis = 1) 
+        else:
+            filename = self.modelica_data_from_troll_location
+            data = h5py.File(filename, &#39;r&#39;)
+            data = data[str(troll_id)][method]
+            start_indx = np.where(np.array([data[&#34;input&#34;][x][0] for x in range(int(len(data[&#39;input&#39;])))]) &gt; start_time)[0][0]
+            ## extract X and y from hdf file and filter out the first several seconds of the simulation
+            #current_X = np.array([np.concatenate([data[&#34;input&#34;][x][1][:12], data[&#34;aux&#34;][x][1]]) for x in range(int(len(data[&#39;input&#39;])))])[start_indx:]
+            # no auxiliary variables are used for training...
+            current_X = np.array([data[&#34;input&#34;][x][1][:12] for x in range(int(len(data[&#39;input&#39;])))])[start_indx:]
+            current_y = np.array([data[&#34;output&#34;][x][1][:6] for x in range(int(len(data[&#39;output&#39;])))])[start_indx:]
+        return current_X, current_y, start_time, stop_time
+    &#39;&#39;&#39;
+
+    def create_train_test_dataset_for_one_fidelity_level(self, data_source, transfered_ids, points_per_second, timestep):
+        X = []
+        y = []
+        for troll_id in tqdm(transfered_ids, bar_format=bar_format, desc=data_source):
+            current_X, current_y, current_strart_time, current_stop_time = extract_data_from_run(method = data_source, troll_id = troll_id)
+            smoothed_X, smoothed_y = self.smooth_simulations(current_X, current_strart_time, current_stop_time, points_per_second), self.smooth_simulations(current_y, current_strart_time, current_stop_time, points_per_second)
+            if self.timeshift:
+                X.append(smoothed_X[:-(points_per_second*timestep)])
+                ### if we use timeshift, then we want to have TWO outputs...? both shifted forward and original (but original is cut, because shifted don&#39;t have correspondence to all of the original output values...)
+                y.append(np.concatenate((smoothed_y[(points_per_second*timestep):], smoothed_y[(points_per_second*timestep):], smoothed_y[:-points_per_second][points_per_second:]), axis=1))
+            else:
+                X.append(smoothed_X) 
+                y.append(smoothed_y)
+        return X, y
+        
+    def get_train_test_runs_indeces(self, gived_run_ids):
+        train_indeces = np.random.choice(range(len(gived_run_ids)), size=round(len(gived_run_ids)*self.train_share), replace=False) 
+        train_ids = gived_run_ids[train_indeces]
+        test_ids = np.array([x for x in gived_run_ids if x not in train_ids])
+        return train_ids, test_ids    
+
+    def get_train_test_data(self, method, points_per_second, timestep, train_ids, test_ids):
+        print(&#34;create train&#34;)
+        X_train, y_train = self.create_train_test_dataset_for_one_fidelity_level(method, train_ids, points_per_second, timestep)
+        X_train, y_train = np.concatenate(X_train), np.concatenate(y_train)
+        print(&#34;created X train with shape: &#34;, X_train.shape)
+        print(&#34;created y train with shape: &#34;, y_train.shape)
+        # don&#39;t concatenate test datasets
+        print(&#34;create test&#34;)
+        X_test, y_test = self.create_train_test_dataset_for_one_fidelity_level(method, test_ids, points_per_second, timestep)
+        return X_train, y_train, X_test, y_test
+    
+    def create_datasets(self, gived_run_ids, points_per_second, timestep):
+        train_ids, test_ids = self.get_train_test_runs_indeces(gived_run_ids)
+        terra = AbstrTerMechDataset(self.get_train_test_data(&#34;terra&#34;, points_per_second, timestep, train_ids, test_ids), &#34;TerRA&#34;, train_ids, test_ids)
+        scm = AbstrTerMechDataset(self.get_train_test_data(&#34;scm&#34;, points_per_second, timestep, train_ids, test_ids), &#34;SCM&#34;, train_ids, test_ids)
+        troll = AbstrTerMechDataset(self.get_train_test_data(&#34;troll&#34;, points_per_second, timestep, train_ids, test_ids), &#34;TROLL&#34;, train_ids, test_ids)
+        return terra, scm, troll
+    
+
+    def store_one_method_to_hdf(self, abstract_terramech_dataset, method, path_to_file):
+        dataset = h5py.File(path_to_file, &#39;a&#39;)
+        print(&#34;Storing &#34; + method + &#34; data to &#34; + path_to_file)
+        dataset.create_dataset(&#39;/&#39; + method + &#39;/X_train&#39;, data=abstract_terramech_dataset.X_train)
+        dataset.create_dataset(&#39;/&#39; + method + &#39;/y_train&#39;, data=abstract_terramech_dataset.y_train)
+        dataset.create_dataset(&#39;/&#39; + method + &#39;/X_test&#39;, data=abstract_terramech_dataset.X_test)
+        dataset.create_dataset(&#39;/&#39; + method + &#39;/y_test&#39;, data=abstract_terramech_dataset.y_test)
+        dataset.close()
+
+    def save_all_to_hdf(self, path_to_file):
+        self.store_one_method_to_hdf(self.terra, &#34;terra&#34;, path_to_file)
+        self.store_one_method_to_hdf(self.scm, &#34;scm&#34;, path_to_file)
+        self.store_one_method_to_hdf(self.troll, &#34;troll&#34;, path_to_file)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="source.dataset_from_troll.DatasetTroll"><code class="flex name class">
+<span>class <span class="ident">DatasetTroll</span></span>
+<span>(</span><span>train_share=1, timeshift=False, use_only_flat_runs=True, selected_runs=None, troll_raw_data_location='H:/NOT_SAVED_TO_BACKUP/TROLL_data/vlad/', modelica_data_from_troll_location='H:/NOT_SAVED_TO_BACKUP/data_backup/all_runs_from_troll_unvalidated.h5', points_per_second=1, timestep=None, num_used_runs=None, json_w_runs_id='parameters/runs_id.json')</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DatasetTroll:
+    def __init__(self, train_share = 1, timeshift = False, use_only_flat_runs = True, selected_runs = None, troll_raw_data_location = &#34;H:/NOT_SAVED_TO_BACKUP/TROLL_data/vlad/&#34;, modelica_data_from_troll_location = &#34;H:/NOT_SAVED_TO_BACKUP/data_backup/all_runs_from_troll_unvalidated.h5&#34;, points_per_second = 1, timestep = None, num_used_runs = None, json_w_runs_id = &#39;parameters/runs_id.json&#39;): #, json_w_start_times = &#39;parameters/analyazable_starttime.json&#39;, json_w_stop_times = &#34;parameters/runs_stop_time.json&#34;):
+        self.troll_raw_data_location = troll_raw_data_location
+        self.modelica_data_from_troll_location = modelica_data_from_troll_location
+        self.train_share = train_share
+        self.timeshift = timeshift
+
+        with open(json_w_runs_id) as data_file:
+            self.runs = json.load(data_file)
+        self.flat_runs = np.array(self.runs[&#34;flat_runs&#34;])
+        self.bump_runs = np.array(self.runs[&#34;bump_runs&#34;])
+        self.points_per_second = points_per_second
+        self.timestep = timestep
+        self.use_only_flat_runs = use_only_flat_runs
+
+        # by default we are using ALL flat runs
+        if self.use_only_flat_runs and selected_runs == None:
+            self.used_runs = self.flat_runs
+        else:
+            self.used_runs = selected_runs
+
+        ### how many runs we want to use?
+        if num_used_runs is not None:
+            self.used_runs = np.random.choice(self.used_runs, num_used_runs, replace=False)
+
+        # determine from which second the troll data are usable (after one full turn of the wheel)
+        # for the next runs (with bumps, where v=0.15) haven&#39;t calculated starttime exactly - only approx
+        # slippage-starttime relationaship is exponential
+        # with open(json_w_start_times) as data_file:
+        #    self.analyazable_starttime = json.load(data_file)
+
+        # time duration of each run can vary quite high, from 5 to 80 seconds
+        #with open(json_w_stop_times) as data_file:
+        #    self.troll_runs_stop_time = json.load(data_file)
+            
+        terra, scm, troll = self.create_datasets(self.used_runs, self.points_per_second, self.timestep)
+        self.dataset = {&#34;terra&#34;: terra,
+                        &#34;scm&#34; : scm,
+                        &#34;troll&#34;: troll}
+
+    def info():
+        print(&#34;Data generated from TROLL runs, conducted from X.12.2022 till 31.01.2023 with 52 (44 are actually used) flat runs and 13 runs with surface distortions (bumps and pits). \n TerRA and SCM datasets were created on TROLL trajectories, using TrollInput from ContactDynamics library. Modified version of TrollInput which was used here could be found on dev-vlad branch. \n Numerical solver: Rkfix4 \n Parameters used in Modelica in order to adjust generated TerRA and SCM data to TROLL data: \n z_offset = 0.0115 for SCM amd 0.0065 for TerRA. \n scm_step = 0.03 \n overall modelica solver step == 0.03 (for SCM) and 0.001 for TerRA \n To check optimization or optimize data generation hyperparameters look in &#39;optimization.ipynb&#39; \n To validate the data, call &#39;data_validation&#39;&#34;)
+   
+    def return_sim_mse(self, method):
+        # show average MSE for SCM or TerRA
+        error = []
+        for test_id in range(int(len(self.used_runs)*(1-self.train_share))):
+            error.append(mean_squared_error(self.dataset[method].train_test_dataset[&#39;test&#39;][&#39;y&#39;][test_id][:, 0][:, None], 
+                                            self.dataset[&#39;troll&#39;].train_test_dataset[&#39;test&#39;][&#39;y&#39;][test_id][:, 0][:, None]))
+        return np.mean(error)
+
+    def smooth_simulations(self, unsmoothed_data, start_time, stop_time, points_per_second):
+        smoothed_data = []
+        # go over columns
+        for i in range(unsmoothed_data.shape[1]):
+            smoothed_data.append(gauss_ma(unsmoothed_data[:, i], desired_lenght = round(stop_time-start_time)*points_per_second, overlap = points_per_second))
+        smoothed_data = np.array(smoothed_data)
+        smoothed_data = smoothed_data.transpose()
+        return smoothed_data
+    
+    &#39;&#39;&#39;  
+    def define_troll_gravity_vec(self, nrow_troll):
+        if self.use_only_flat_runs:
+            gravity_vec = np.concatenate([np.zeros(nrow_troll)[:, None], np.zeros(nrow_troll)[:, None], -1*np.ones(nrow_troll)[:, None]], axis=1)
+        else:
+            ######### TODO ###########
+            ### find a gravity angle using... soil profile/sinkage? Or this possible only with the upload of the surface? then only through Modelica? Or somehow run it once and store somewhere?
+            gravity_vec = None
+            ##########################
+        return gravity_vec
+      
+    def extract_data_from_run(self, method, troll_id):
+        # remeber to use specifi starting time-points (due to different slippage rate - we should analyze wheel&#39;s movement only after one full cicle of the wheel has been traversed)
+        start_time = float([x for x in self.analyazable_starttime if troll_id in self.analyazable_starttime[x]][0])
+        stop_time = float(self.troll_runs_stop_time[str(troll_id)])
+        # preprocessing for TROLL and for TerRA&amp;SCM is a little bit different
+        if method == &#34;troll&#34;:
+            troll_run_name = glob(self.troll_raw_data_location+&#34;*&#34;+str(troll_id)+&#34;*&#34;)[0]
+            troll_run = load_troll_data(troll_run_name, mode=&#34;analysis&#34;)
+            troll_dataset = transform_run(troll_run)
+            start_indx = np.where(troll_dataset[:, 0] &gt; start_time)[0][0]
+            # filter out effect of a robotic arm acceleration
+            a_tcp_rotated = arm_acceleration(troll_run)
+            # compensate troll forces with the robotic arm acceleration
+            current_y = troll_dataset[:, 14:17] + 20.97*a_tcp_rotated # all forces, don&#39;t compansate torques
+            current_y = np.concatenate([current_y, troll_dataset[:, 17:20]], axis=1) # attached torques
+            current_y = current_y[start_indx:] 
+            ## data extraction from TROLL is a bit different, but some Modelica code depends on it, so don&#39;t change 
+            troll_gravity_vec = self.define_troll_gravity_vec(current_y.shape[0])
+            # convert troll X columns structure to the TerRA\SCM columns structure
+            current_X = np.concatenate([troll_dataset[start_indx:, 1:3], troll_dataset[start_indx:, 5:7], troll_dataset[start_indx:, 11:13], troll_gravity_vec], axis = 1) 
+        else:
+            filename = self.modelica_data_from_troll_location
+            data = h5py.File(filename, &#39;r&#39;)
+            data = data[str(troll_id)][method]
+            start_indx = np.where(np.array([data[&#34;input&#34;][x][0] for x in range(int(len(data[&#39;input&#39;])))]) &gt; start_time)[0][0]
+            ## extract X and y from hdf file and filter out the first several seconds of the simulation
+            #current_X = np.array([np.concatenate([data[&#34;input&#34;][x][1][:12], data[&#34;aux&#34;][x][1]]) for x in range(int(len(data[&#39;input&#39;])))])[start_indx:]
+            # no auxiliary variables are used for training...
+            current_X = np.array([data[&#34;input&#34;][x][1][:12] for x in range(int(len(data[&#39;input&#39;])))])[start_indx:]
+            current_y = np.array([data[&#34;output&#34;][x][1][:6] for x in range(int(len(data[&#39;output&#39;])))])[start_indx:]
+        return current_X, current_y, start_time, stop_time
+    &#39;&#39;&#39;
+
+    def create_train_test_dataset_for_one_fidelity_level(self, data_source, transfered_ids, points_per_second, timestep):
+        X = []
+        y = []
+        for troll_id in tqdm(transfered_ids, bar_format=bar_format, desc=data_source):
+            current_X, current_y, current_strart_time, current_stop_time = extract_data_from_run(method = data_source, troll_id = troll_id)
+            smoothed_X, smoothed_y = self.smooth_simulations(current_X, current_strart_time, current_stop_time, points_per_second), self.smooth_simulations(current_y, current_strart_time, current_stop_time, points_per_second)
+            if self.timeshift:
+                X.append(smoothed_X[:-(points_per_second*timestep)])
+                ### if we use timeshift, then we want to have TWO outputs...? both shifted forward and original (but original is cut, because shifted don&#39;t have correspondence to all of the original output values...)
+                y.append(np.concatenate((smoothed_y[(points_per_second*timestep):], smoothed_y[(points_per_second*timestep):], smoothed_y[:-points_per_second][points_per_second:]), axis=1))
+            else:
+                X.append(smoothed_X) 
+                y.append(smoothed_y)
+        return X, y
+        
+    def get_train_test_runs_indeces(self, gived_run_ids):
+        train_indeces = np.random.choice(range(len(gived_run_ids)), size=round(len(gived_run_ids)*self.train_share), replace=False) 
+        train_ids = gived_run_ids[train_indeces]
+        test_ids = np.array([x for x in gived_run_ids if x not in train_ids])
+        return train_ids, test_ids    
+
+    def get_train_test_data(self, method, points_per_second, timestep, train_ids, test_ids):
+        print(&#34;create train&#34;)
+        X_train, y_train = self.create_train_test_dataset_for_one_fidelity_level(method, train_ids, points_per_second, timestep)
+        X_train, y_train = np.concatenate(X_train), np.concatenate(y_train)
+        print(&#34;created X train with shape: &#34;, X_train.shape)
+        print(&#34;created y train with shape: &#34;, y_train.shape)
+        # don&#39;t concatenate test datasets
+        print(&#34;create test&#34;)
+        X_test, y_test = self.create_train_test_dataset_for_one_fidelity_level(method, test_ids, points_per_second, timestep)
+        return X_train, y_train, X_test, y_test
+    
+    def create_datasets(self, gived_run_ids, points_per_second, timestep):
+        train_ids, test_ids = self.get_train_test_runs_indeces(gived_run_ids)
+        terra = AbstrTerMechDataset(self.get_train_test_data(&#34;terra&#34;, points_per_second, timestep, train_ids, test_ids), &#34;TerRA&#34;, train_ids, test_ids)
+        scm = AbstrTerMechDataset(self.get_train_test_data(&#34;scm&#34;, points_per_second, timestep, train_ids, test_ids), &#34;SCM&#34;, train_ids, test_ids)
+        troll = AbstrTerMechDataset(self.get_train_test_data(&#34;troll&#34;, points_per_second, timestep, train_ids, test_ids), &#34;TROLL&#34;, train_ids, test_ids)
+        return terra, scm, troll
+    
+
+    def store_one_method_to_hdf(self, abstract_terramech_dataset, method, path_to_file):
+        dataset = h5py.File(path_to_file, &#39;a&#39;)
+        print(&#34;Storing &#34; + method + &#34; data to &#34; + path_to_file)
+        dataset.create_dataset(&#39;/&#39; + method + &#39;/X_train&#39;, data=abstract_terramech_dataset.X_train)
+        dataset.create_dataset(&#39;/&#39; + method + &#39;/y_train&#39;, data=abstract_terramech_dataset.y_train)
+        dataset.create_dataset(&#39;/&#39; + method + &#39;/X_test&#39;, data=abstract_terramech_dataset.X_test)
+        dataset.create_dataset(&#39;/&#39; + method + &#39;/y_test&#39;, data=abstract_terramech_dataset.y_test)
+        dataset.close()
+
+    def save_all_to_hdf(self, path_to_file):
+        self.store_one_method_to_hdf(self.terra, &#34;terra&#34;, path_to_file)
+        self.store_one_method_to_hdf(self.scm, &#34;scm&#34;, path_to_file)
+        self.store_one_method_to_hdf(self.troll, &#34;troll&#34;, path_to_file)</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="source.dataset_from_troll.DatasetTroll.create_datasets"><code class="name flex">
+<span>def <span class="ident">create_datasets</span></span>(<span>self, gived_run_ids, points_per_second, timestep)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_datasets(self, gived_run_ids, points_per_second, timestep):
+    train_ids, test_ids = self.get_train_test_runs_indeces(gived_run_ids)
+    terra = AbstrTerMechDataset(self.get_train_test_data(&#34;terra&#34;, points_per_second, timestep, train_ids, test_ids), &#34;TerRA&#34;, train_ids, test_ids)
+    scm = AbstrTerMechDataset(self.get_train_test_data(&#34;scm&#34;, points_per_second, timestep, train_ids, test_ids), &#34;SCM&#34;, train_ids, test_ids)
+    troll = AbstrTerMechDataset(self.get_train_test_data(&#34;troll&#34;, points_per_second, timestep, train_ids, test_ids), &#34;TROLL&#34;, train_ids, test_ids)
+    return terra, scm, troll</code></pre>
+</details>
+</dd>
+<dt id="source.dataset_from_troll.DatasetTroll.create_train_test_dataset_for_one_fidelity_level"><code class="name flex">
+<span>def <span class="ident">create_train_test_dataset_for_one_fidelity_level</span></span>(<span>self, data_source, transfered_ids, points_per_second, timestep)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_train_test_dataset_for_one_fidelity_level(self, data_source, transfered_ids, points_per_second, timestep):
+    X = []
+    y = []
+    for troll_id in tqdm(transfered_ids, bar_format=bar_format, desc=data_source):
+        current_X, current_y, current_strart_time, current_stop_time = extract_data_from_run(method = data_source, troll_id = troll_id)
+        smoothed_X, smoothed_y = self.smooth_simulations(current_X, current_strart_time, current_stop_time, points_per_second), self.smooth_simulations(current_y, current_strart_time, current_stop_time, points_per_second)
+        if self.timeshift:
+            X.append(smoothed_X[:-(points_per_second*timestep)])
+            ### if we use timeshift, then we want to have TWO outputs...? both shifted forward and original (but original is cut, because shifted don&#39;t have correspondence to all of the original output values...)
+            y.append(np.concatenate((smoothed_y[(points_per_second*timestep):], smoothed_y[(points_per_second*timestep):], smoothed_y[:-points_per_second][points_per_second:]), axis=1))
+        else:
+            X.append(smoothed_X) 
+            y.append(smoothed_y)
+    return X, y</code></pre>
+</details>
+</dd>
+<dt id="source.dataset_from_troll.DatasetTroll.get_train_test_data"><code class="name flex">
+<span>def <span class="ident">get_train_test_data</span></span>(<span>self, method, points_per_second, timestep, train_ids, test_ids)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_train_test_data(self, method, points_per_second, timestep, train_ids, test_ids):
+    print(&#34;create train&#34;)
+    X_train, y_train = self.create_train_test_dataset_for_one_fidelity_level(method, train_ids, points_per_second, timestep)
+    X_train, y_train = np.concatenate(X_train), np.concatenate(y_train)
+    print(&#34;created X train with shape: &#34;, X_train.shape)
+    print(&#34;created y train with shape: &#34;, y_train.shape)
+    # don&#39;t concatenate test datasets
+    print(&#34;create test&#34;)
+    X_test, y_test = self.create_train_test_dataset_for_one_fidelity_level(method, test_ids, points_per_second, timestep)
+    return X_train, y_train, X_test, y_test</code></pre>
+</details>
+</dd>
+<dt id="source.dataset_from_troll.DatasetTroll.get_train_test_runs_indeces"><code class="name flex">
+<span>def <span class="ident">get_train_test_runs_indeces</span></span>(<span>self, gived_run_ids)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_train_test_runs_indeces(self, gived_run_ids):
+    train_indeces = np.random.choice(range(len(gived_run_ids)), size=round(len(gived_run_ids)*self.train_share), replace=False) 
+    train_ids = gived_run_ids[train_indeces]
+    test_ids = np.array([x for x in gived_run_ids if x not in train_ids])
+    return train_ids, test_ids    </code></pre>
+</details>
+</dd>
+<dt id="source.dataset_from_troll.DatasetTroll.info"><code class="name flex">
+<span>def <span class="ident">info</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def info():
+    print(&#34;Data generated from TROLL runs, conducted from X.12.2022 till 31.01.2023 with 52 (44 are actually used) flat runs and 13 runs with surface distortions (bumps and pits). \n TerRA and SCM datasets were created on TROLL trajectories, using TrollInput from ContactDynamics library. Modified version of TrollInput which was used here could be found on dev-vlad branch. \n Numerical solver: Rkfix4 \n Parameters used in Modelica in order to adjust generated TerRA and SCM data to TROLL data: \n z_offset = 0.0115 for SCM amd 0.0065 for TerRA. \n scm_step = 0.03 \n overall modelica solver step == 0.03 (for SCM) and 0.001 for TerRA \n To check optimization or optimize data generation hyperparameters look in &#39;optimization.ipynb&#39; \n To validate the data, call &#39;data_validation&#39;&#34;)</code></pre>
+</details>
+</dd>
+<dt id="source.dataset_from_troll.DatasetTroll.return_sim_mse"><code class="name flex">
+<span>def <span class="ident">return_sim_mse</span></span>(<span>self, method)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def return_sim_mse(self, method):
+    # show average MSE for SCM or TerRA
+    error = []
+    for test_id in range(int(len(self.used_runs)*(1-self.train_share))):
+        error.append(mean_squared_error(self.dataset[method].train_test_dataset[&#39;test&#39;][&#39;y&#39;][test_id][:, 0][:, None], 
+                                        self.dataset[&#39;troll&#39;].train_test_dataset[&#39;test&#39;][&#39;y&#39;][test_id][:, 0][:, None]))
+    return np.mean(error)</code></pre>
+</details>
+</dd>
+<dt id="source.dataset_from_troll.DatasetTroll.save_all_to_hdf"><code class="name flex">
+<span>def <span class="ident">save_all_to_hdf</span></span>(<span>self, path_to_file)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def save_all_to_hdf(self, path_to_file):
+    self.store_one_method_to_hdf(self.terra, &#34;terra&#34;, path_to_file)
+    self.store_one_method_to_hdf(self.scm, &#34;scm&#34;, path_to_file)
+    self.store_one_method_to_hdf(self.troll, &#34;troll&#34;, path_to_file)</code></pre>
+</details>
+</dd>
+<dt id="source.dataset_from_troll.DatasetTroll.smooth_simulations"><code class="name flex">
+<span>def <span class="ident">smooth_simulations</span></span>(<span>self, unsmoothed_data, start_time, stop_time, points_per_second)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def smooth_simulations(self, unsmoothed_data, start_time, stop_time, points_per_second):
+    smoothed_data = []
+    # go over columns
+    for i in range(unsmoothed_data.shape[1]):
+        smoothed_data.append(gauss_ma(unsmoothed_data[:, i], desired_lenght = round(stop_time-start_time)*points_per_second, overlap = points_per_second))
+    smoothed_data = np.array(smoothed_data)
+    smoothed_data = smoothed_data.transpose()
+    return smoothed_data</code></pre>
+</details>
+</dd>
+<dt id="source.dataset_from_troll.DatasetTroll.store_one_method_to_hdf"><code class="name flex">
+<span>def <span class="ident">store_one_method_to_hdf</span></span>(<span>self, abstract_terramech_dataset, method, path_to_file)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def store_one_method_to_hdf(self, abstract_terramech_dataset, method, path_to_file):
+    dataset = h5py.File(path_to_file, &#39;a&#39;)
+    print(&#34;Storing &#34; + method + &#34; data to &#34; + path_to_file)
+    dataset.create_dataset(&#39;/&#39; + method + &#39;/X_train&#39;, data=abstract_terramech_dataset.X_train)
+    dataset.create_dataset(&#39;/&#39; + method + &#39;/y_train&#39;, data=abstract_terramech_dataset.y_train)
+    dataset.create_dataset(&#39;/&#39; + method + &#39;/X_test&#39;, data=abstract_terramech_dataset.X_test)
+    dataset.create_dataset(&#39;/&#39; + method + &#39;/y_test&#39;, data=abstract_terramech_dataset.y_test)
+    dataset.close()</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="source" href="index.html">source</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="source.dataset_from_troll.DatasetTroll" href="#source.dataset_from_troll.DatasetTroll">DatasetTroll</a></code></h4>
+<ul class="">
+<li><code><a title="source.dataset_from_troll.DatasetTroll.create_datasets" href="#source.dataset_from_troll.DatasetTroll.create_datasets">create_datasets</a></code></li>
+<li><code><a title="source.dataset_from_troll.DatasetTroll.create_train_test_dataset_for_one_fidelity_level" href="#source.dataset_from_troll.DatasetTroll.create_train_test_dataset_for_one_fidelity_level">create_train_test_dataset_for_one_fidelity_level</a></code></li>
+<li><code><a title="source.dataset_from_troll.DatasetTroll.get_train_test_data" href="#source.dataset_from_troll.DatasetTroll.get_train_test_data">get_train_test_data</a></code></li>
+<li><code><a title="source.dataset_from_troll.DatasetTroll.get_train_test_runs_indeces" href="#source.dataset_from_troll.DatasetTroll.get_train_test_runs_indeces">get_train_test_runs_indeces</a></code></li>
+<li><code><a title="source.dataset_from_troll.DatasetTroll.info" href="#source.dataset_from_troll.DatasetTroll.info">info</a></code></li>
+<li><code><a title="source.dataset_from_troll.DatasetTroll.return_sim_mse" href="#source.dataset_from_troll.DatasetTroll.return_sim_mse">return_sim_mse</a></code></li>
+<li><code><a title="source.dataset_from_troll.DatasetTroll.save_all_to_hdf" href="#source.dataset_from_troll.DatasetTroll.save_all_to_hdf">save_all_to_hdf</a></code></li>
+<li><code><a title="source.dataset_from_troll.DatasetTroll.smooth_simulations" href="#source.dataset_from_troll.DatasetTroll.smooth_simulations">smooth_simulations</a></code></li>
+<li><code><a title="source.dataset_from_troll.DatasetTroll.store_one_method_to_hdf" href="#source.dataset_from_troll.DatasetTroll.store_one_method_to_hdf">store_one_method_to_hdf</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

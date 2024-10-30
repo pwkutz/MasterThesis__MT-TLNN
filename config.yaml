@@ -1,0 +1,32 @@
+file__train__HF: 'train_test_dataset_from_troll.pkl' # "surface_scans_and_multifidelity_outputs/HF_train_surface_scans.csv"
+file__train__LF: "surface_scans_and_multifidelity_outputs/LF_surface_scans_200runs_drop_diff_mass.csv"
+file__test: "surface_scans_and_multifidelity_outputs/HF_test_surface_scans.csv"
+checkpoint_path:
+  AE: "AE_model.keras"
+  NNL: "NNL_model.keras"
+  MFTLNN: "MFTLNN.keras"
+
+
+name_NN:
+  AE: "AE"
+  NNL: "NNL"
+  MFTLNN: "MFTLNN"
+
+window_size:
+  train: 50
+  test: 10
+
+input_shape:
+  CNN: [64, 64, 1]  # H x W x C
+  AE: [1]
+epoch: 50
+batch_size: 32
+keep_Nth_last_layer: 2
+mode:       # either TestAndTrain or PerformanceCheck is True
+  TestAndTrain: True
+  PerformanceCheck: False
+num_folds: 10
+val_split: 0.1
+patience: 10
+
+
